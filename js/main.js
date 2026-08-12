@@ -1,95 +1,281 @@
-// Frankfurt Skyline Animation
-const canvas = document.getElementById("skyline-canvas");
-const ctx = canvas.getContext("2d");
+/**
+ * Falk Thore Gebhardt - Modern Landing Page
+ * Main JavaScript for interactivity and Frankfurt skyline animation
+ */
 
-function resizeCanvas() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
+// ============================================
+// Frankfurt Skyline Canvas Animation
+// ============================================
+class FrankfurtSkyline {
+    constructor() {
+        this.canvas = document.getElementById('skyline-canvas');
+        if (!this.canvas) return;
 
-function drawSkyline() {
-  ctx.fillStyle = "#0a1628";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+        this.ctx = this.canvas.getContext('2d');
+        this.buildings = this.generateBuildings();
+        this.stars = this.generateStars();
+        this.rayAngle = 0;
+        this.raySpeed = 0.0003;
 
-  // Draw buildings (Frankfurt skyline)
-  const buildings = [
-    { x: 100, w: 80, h: 200 },
-    { x: 250, w: 120, h: 300 },
-    { x: 450, w: 100, h: 250 },
-    { x: 650, w: 150, h: 350 },
-    { x: 850, w: 90, h: 280 },
-  ];
+        this.resize();
+        this.bindEvents();
+        this.animate();
+    }
 
-  buildings.forEach((b) => {
-    ctx.fillStyle = "#0f2847";
-    ctx.fillRect(b.x, canvas.height - b.h, b.w, b.h);
+    generateBuildings() {
+        // Frankfurt skyline inspired buildings
+        return [
+            { x: 0.05, width: 0.04, height: 0.25, color: '#1a4d85' },
+            { x: 0.12, width: 0.06, height: 0.40, color: '#0f2847' },
+            { x: 0.20, width: 0.05, height: 0.30, color: '#153a66' },
+            { x: 0.28, width: 0.08, height: 0.50, color: '#0a1628' },
+            { x: 0.38, width: 0.07, height: 0.45, color: '#1a4d85' },
+            { x: 0.48, width: 0.10, height: 0.70, color: '#0f2847' }, // Commerzbank Tower
+            { x: 0.60, width: 0.06, height: 0.55, color: '#153a66' },
+            { x: 0.68, width: 0.09, height: 0.60, color: '#0a1628' },
+            { x: 0.79, width: 0.05, height: 0.40, color: '#1a4d85' },
+            { x: 0.86, width: 0.07, height: 0.45, color: '#0f2847' }
+        ];
+    }
 
-    // Windows
-    for (let y = canvas.height - b.h + 20; y < canvas.height - 20; y += 30) {
-      for (let x = b.x + 10; x < b.x + b.w - 10; x += 25) {
-        if (Math.random() > 0.3) {
-          ctx.fillStyle = "#4a90e2";
-          ctx.fillRect(x, y, 8, 12);
+    generateStars() {
+        const stars = [];
+        for (let i = 0; i < 80; i++) {
+            stars.push({
+                x: Math.random(),
+                y: Math.random() * 0.25,
+                size: Math.random() * 1.5 + 0.5,
+                opacity: Math.random() * 0.7 + 0.3,
+                twinkle: Math.random() * Math.PI * 2
+            });
         }
-      }
+        return stars;
     }
-  });
 
-  // Draw colorful ray (rotating)
-  const centerX = canvas.width / 2;
-  const centerY = canvas.height / 2;
-  const time = Date.now() * 0.0005;
-  const angle = time;
+    resize() {
+        this.width = window.innerWidth;
+        this.height = window.innerHeight;
+        this.canvas.width = this.width;
+        this.canvas.height = this.height;
+    }
 
-  const gradient = ctx.createRadialGradient(
-    centerX,
-    centerY,
-    0,
-    centerX,
-    centerY,
-    canvas.width,
-  );
-  gradient.addColorStop(0, "transparent");
-  gradient.addColorStop(
-    0.5,
-    `hsla(${(angle * 180) / Math.PI}, 100%, 50%, 0.3)`,
-  );
-  gradient.addColorStop(1, "transparent");
+    bindEvents() {
+        window.addEventListener('resize', () => this.resize());
+    }
 
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+    drawBuildings() {
+        const ctx = this.ctx;
+        const height = this.height;
 
-  // Stars
-  for (let i = 0; i < 100; i++) {
-    const x = Math.random() * canvas.width;
-    const y = Math.random() * canvas.height * 0.3;
-    const size = Math.random() * 2;
-    ctx.fillStyle = `rgba(255,255,255,${Math.random() * 0.8 + 0.2})`;
-    ctx.beginPath();
-    ctx.arc(x, y, size, 0, Math.PI * 2);
-    ctx.fill();
-  }
+        // Draw gradient background
+        const gradient = ctx.createLinearGradient(0, 0, 0, height);
+        gradient.addColorStop(0, '#050a14');
+        gradient.addColorStop(0.5, '#0a1628');
+        gradient.addColorStop(1, '#0f2847');
+
+        ctx.fillStyle = gradient;
+        ctx.fillRect(0, 0, this.width, height);
+
+        // Draw buildings
+        this.buildings.forEach(building => {
+            // Add color variation
+            const hue = Math.sin(building.x * 10) * 20 + 210;
+            const saturation = 70 + Math.sin(building.x * 5) * 10;
+            const lightness = 20 + Math.sin(building.x * 3) * 5;
+            ctx.fillStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+
+            ctx.fillRect(
+                building.x * this.width,
+                height - building.height * height,
+                building.width * this.width,
+                building.height * height
+            );
+
+            // Add windows
+            const windowWidth = 0.004 * this.width;
+            const windowHeight = 0.008 * height;
+            const windowSpacing = 0.012 * this.width;
+
+            for (let y = height - building.height * height + windowHeight;
+                 y < height - 0.05 * height;
+                 y += windowSpacing) {
+                for (let x = building.x * this.width + windowWidth;
+                     x < (building.x + building.width) * this.width - windowWidth;
+                     x += windowSpacing * 1.2) {
+                    if (Math.random() > 0.4) {
+                        ctx.fillStyle = `rgba(100, 180, 255, ${Math.random() * 0.6 + 0.4})`;
+                        ctx.fillRect(x, y, windowWidth, windowHeight);
+                    }
+                }
+            }
+        });
+    }
+
+    drawStars() {
+        const ctx = this.ctx;
+        const height = this.height;
+
+        this.stars.forEach(star => {
+            const twinkle = Math.sin(star.twinkle + Date.now() * 0.001) * 0.3 + 0.7;
+            ctx.globalAlpha = star.opacity * twinkle;
+            ctx.fillStyle = '#ffffff';
+            ctx.beginPath();
+            ctx.arc(
+                star.x * this.width,
+                star.y * height,
+                star.size,
+                0,
+                Math.PI * 2
+            );
+            ctx.fill();
+            ctx.globalAlpha = 1;
+        });
+    }
+
+    drawRay() {
+        const ctx = this.ctx;
+        const centerX = this.width * 0.5;
+        const centerY = this.height * 0.5;
+        const maxRadius = Math.max(this.width, this.height) * 1.2;
+
+        // Draw rotating color ray
+        for (let i = 0; i < 3; i++) {
+            const angle = this.rayAngle + (i * Math.PI * 2 / 3);
+            const colors = ['#ffd700', '#ff00ff', '#00ffff'];
+
+            const gradient = ctx.createRadialGradient(
+                centerX, centerY, 0,
+                centerX, centerY, maxRadius
+            );
+            gradient.addColorStop(0, 'transparent');
+            gradient.addColorStop(0.4, 'transparent');
+            gradient.addColorStop(0.5, colors[i] + '30');
+            gradient.addColorStop(0.6, colors[i] + '10');
+            gradient.addColorStop(1, 'transparent');
+
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, this.width, this.height);
+        }
+
+        // Draw particles
+        for (let i = 0; i < 30; i++) {
+            const distance = (Math.sin(Date.now() * 0.001 + i) * 0.5 + 0.5) * maxRadius * 0.7;
+            const particleAngle = this.rayAngle + (Math.sin(Date.now() * 0.0005 + i) * 0.2);
+            const x = centerX + Math.cos(particleAngle) * distance;
+            const y = centerY + Math.sin(particleAngle) * distance;
+            const size = (Math.sin(Date.now() * 0.002 + i) * 0.5 + 0.5) * 2;
+
+            ctx.globalAlpha = 0.6;
+            ctx.fillStyle = ['#ffd700', '#ff00ff', '#00ffff'][i % 3];
+            ctx.beginPath();
+            ctx.arc(x, y, size, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.globalAlpha = 1;
+        }
+
+        this.rayAngle += this.raySpeed;
+    }
+
+    animate() {
+        this.drawBuildings();
+        this.drawStars();
+        this.drawRay();
+        requestAnimationFrame(() => this.animate());
+    }
 }
 
-window.addEventListener("resize", () => {
-  resizeCanvas();
-  drawSkyline();
-});
+// ============================================
+// Navigation
+// ============================================
+class Navigation {
+    constructor() {
+        this.navbar = document.getElementById('main-nav');
+        this.navToggle = document.querySelector('.nav-toggle');
+        this.navLinks = document.querySelector('.nav-links');
+        this.navLinkItems = document.querySelectorAll('.nav-link');
+        this.backToTop = document.getElementById('back-to-top');
 
-resizeCanvas();
-function animate() {
-  drawSkyline();
-  requestAnimationFrame(animate);
-}
-animate();
-
-// Smooth scrolling for navigation
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      target.scrollIntoView({ behavior: "smooth" });
+        this.bindEvents();
     }
-  });
+
+    bindEvents() {
+        if (this.navToggle && this.navLinks) {
+            this.navToggle.addEventListener('click', () => this.toggleMobileMenu());
+        }
+
+        this.navLinkItems.forEach(link => {
+            link.addEventListener('click', () => this.closeMobileMenu());
+        });
+
+        document.addEventListener('click', (e) => {
+            if (this.navLinks && !this.navLinks.contains(e.target) &&
+                !this.navToggle.contains(e.target) &&
+                this.navLinks.classList.contains('active')) {
+                this.closeMobileMenu();
+            }
+        });
+
+        window.addEventListener('scroll', () => this.handleScroll());
+    }
+
+    toggleMobileMenu() {
+        if (this.navToggle && this.navLinks) {
+            this.navToggle.classList.toggle('active');
+            this.navLinks.classList.toggle('active');
+            document.body.style.overflow = this.navLinks.classList.contains('active') ? 'hidden' : '';
+        }
+    }
+
+    closeMobileMenu() {
+        if (this.navToggle && this.navLinks) {
+            this.navToggle.classList.remove('active');
+            this.navLinks.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+
+    handleScroll() {
+        const scrollY = window.scrollY;
+
+        if (scrollY > 50) {
+            this.navbar.classList.add('scrolled');
+        } else {
+            this.navbar.classList.remove('scrolled');
+        }
+
+        if (this.backToTop && scrollY > window.innerHeight) {
+            this.backToTop.classList.add('visible');
+        } else if (this.backToTop) {
+            this.backToTop.classList.remove('visible');
+        }
+    }
+}
+
+// ============================================
+// Back to Top Button
+// ============================================
+class BackToTop {
+    constructor() {
+        this.backToTop = document.getElementById('back-to-top');
+        if (this.backToTop) {
+            this.backToTop.addEventListener('click', () => this.scrollToTop());
+        }
+    }
+
+    scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+}
+
+// ============================================
+// Initialize Everything
+// ============================================
+document.addEventListener('DOMContentLoaded', () => {
+    new FrankfurtSkyline();
+    new Navigation();
+    new BackToTop();
+    console.log('Falk Thore Gebhardt Website initialized successfully');
 });

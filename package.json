@@ -1,7 +1,7 @@
 {
   "name": "falk-thore-gebhardt-website",
   "version": "1.0.0",
-  "description": "Modern landing page for Falk Thore Gebhardt - FDP politician and financial regulatory consultant",
+  "description": "Modern landing page for Falk Thore Gebhardt - FDP politician from Frankfurt and financial regulatory consultant",
   "main": "js/main.js",
   "scripts": {
     "start": "npx serve .",

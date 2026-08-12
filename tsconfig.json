@@ -12,7 +12,6 @@
     "rootDir": "./js",
     "sourceMap": true,
     "declaration": true,
-    "declarationMap": true,
     "removeComments": true,
     "noEmit": false,
     "allowJs": true,
