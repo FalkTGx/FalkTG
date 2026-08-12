@@ -1,0 +1,30 @@
+{
+  "name": "falk-thore-gebhardt-website",
+  "version": "1.0.0",
+  "description": "Modern landing page for Falk Thore Gebhardt - FDP politician and financial regulatory consultant",
+  "main": "js/main.js",
+  "scripts": {
+    "start": "npx serve .",
+    "dev": "npx live-server --port=3000",
+    "build": "tsc",
+    "lint": "npx eslint js/**/*.js",
+    "format": "npx prettier --write ."
+  },
+  "keywords": [
+    "politics",
+    "fdp",
+    "frankfurt",
+    "consulting",
+    "financial-regulation",
+    "landing-page"
+  ],
+  "author": "Falk Thore Gebhardt",
+  "license": "MIT",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.2.1",
+    "typescript": "^5.3.3",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.5"
+  }
+}
