@@ -1,53 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="PinT — Public Institution Transformation by FalkTG.">
-    <title>PinT | Public Institution Transformation | FalkTG</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/theme-gold.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Public Institutions | FalkTG PinT</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" type="image/jpeg" href="assets/falcon-mark.jpg">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <canvas id="skyline-canvas"></canvas>
-    <nav id="main-nav" class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo"><img src="assets/logo-falcon.svg" alt="FalkTG falcon" class="logo-mark"><span class="logo-text">FalkTG</span></a>
-            <button class="nav-toggle" aria-label="Open menu"><span></span><span></span><span></span></button>
-            <ul class="nav-links">
-                <li><a href="index.html" class="nav-link">Home</a></li>
-                <li><a href="fint.html" class="nav-link">FinT</a></li>
-                <li><a href="pint.html" class="nav-link active">PinT</a></li>
-                <li><a href="pint.html#contact" class="nav-link">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-    <section class="hero-section page-hero"><div class="hero-content single"><div class="hero-text">
-        <p class="eyebrow gold">PinT · Gold desk</p>
-        <h1 class="hero-title">Public Institution Transformation</h1>
-        <p class="hero-lead">Counsel for government, administration and political office-holders. Process first, then the message, then the rule.</p>
-    </div></div></section>
-    <section class="section politics-section">
-        <div class="section-header"><span class="section-tag">Services</span><h2 class="section-title">Three lines of work</h2></div>
-        <div class="content-grid">
-            <article class="content-card"><h3>Process optimisation</h3><p>Map the real path of a file through the house. Cut loops, name owners, measure cycle time.</p></article>
-            <article class="content-card"><h3>Communications optimisation</h3><p>Strategy and message architecture for public decisions — internally first, then outward.</p></article>
-            <article class="content-card"><h3>Legislative counsel</h3><p>Advice on law-making and rule design: what the draft does, who it hits, and whether it can be administered.</p></article>
-        </div>
+  <canvas id="skyline-canvas"></canvas><div class="wind-layer"></div>
+  <div class="wrap">
+    <header class="nav"><div class="nav-inner">
+      <a class="brand" href="index.html"><img src="assets/falcon-mark.jpg" alt="FalkTG"><b>FalkTG</b></a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="fint.html">Financial Institutions</a></li>
+        <li><a class="active" href="pint.html">Public Institutions</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div></header>
+    <section class="section" style="padding-top:7.5rem">
+      <div class="section-head"><p class="kicker">PinT · Gold desk</p><h2>Public Institution Transformation</h2></div>
+      <div class="pint-split">
+        <article class="pint-col">
+          <div class="symbol">▣</div>
+          <h3>Administrative counsel</h3>
+          <p class="muted">For government and administration.</p>
+          <ul>
+            <li>Process mapping and cycle-time cuts</li>
+            <li>Ownership, handoffs, file discipline</li>
+            <li>Digital administration that can finish a case</li>
+            <li>Evidence the house can defend</li>
+          </ul>
+        </article>
+        <article class="pint-col">
+          <div class="symbol">◆</div>
+          <h3>Political counsel</h3>
+          <p class="muted">For factions and office-holders.</p>
+          <ul>
+            <li>Strategy before the press conference</li>
+            <li>Message architecture, internally first</li>
+            <li>Legislative counsel: what the draft does</li>
+            <li>Whether the rule can be administered</li>
+          </ul>
+        </article>
+      </div>
+      <div class="prices one" style="margin-top:2rem"><article class="price"><h3>Public mandate</h3><strong>€490</strong><p class="muted">per hour</p></article></div>
     </section>
-    <section class="section">
-        <div class="section-header"><span class="section-tag">Pricing</span><h2 class="section-title">PinT fees</h2><p class="section-subtitle">Time-based. EUR, exclusive of VAT where applicable.</p></div>
-        <div class="pricing-grid single-price">
-            <article class="price-card featured-gold"><h3>Public mandate</h3><p class="price-main">€490</p><p class="price-sub">per hour</p><p class="price-ongoing">Process, communications, legislative counsel</p></article>
-        </div>
-    </section>
-    <section id="contact" class="section contact-section"><div class="section-header"><h2 class="section-title">Request a PinT briefing</h2><p class="section-subtitle"><a href="mailto:falk.gebhardt@fdp-frankfurt.de">falk.gebhardt@fdp-frankfurt.de</a></p></div></section>
-    <footer class="footer"><div class="footer-content"><p>&copy; 2026 Falk Thore Gebhardt (FalkTG). PinT.</p></div></footer>
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M12 5l-7 7M12 5l7 7"/></svg></button>
-    <script src="js/main.js"></script>
-</body>
-</html>
+    <footer class="footer"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></footer>
+  </div>
+  <script src="js/main.js"></script>
+</body></html>
