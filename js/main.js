@@ -3,9 +3,6 @@
  * Main JavaScript for interactivity and Frankfurt skyline animation
  */
 
-// ============================================
-// Frankfurt Skyline Canvas Animation
-// ============================================
 class FrankfurtSkyline {
     constructor() {
         this.canvas = document.getElementById('skyline-canvas');
@@ -15,7 +12,7 @@ class FrankfurtSkyline {
         this.buildings = this.generateBuildings();
         this.stars = this.generateStars();
         this.rayAngle = 0;
-        this.raySpeed = 0.0003;
+        this.raySpeed = 0.00018;
 
         this.resize();
         this.bindEvents();
@@ -23,14 +20,13 @@ class FrankfurtSkyline {
     }
 
     generateBuildings() {
-        // Frankfurt skyline inspired buildings
         return [
             { x: 0.05, width: 0.04, height: 0.25, color: '#1a4d85' },
             { x: 0.12, width: 0.06, height: 0.40, color: '#0f2847' },
             { x: 0.20, width: 0.05, height: 0.30, color: '#153a66' },
             { x: 0.28, width: 0.08, height: 0.50, color: '#0a1628' },
             { x: 0.38, width: 0.07, height: 0.45, color: '#1a4d85' },
-            { x: 0.48, width: 0.10, height: 0.70, color: '#0f2847' }, // Commerzbank Tower
+            { x: 0.48, width: 0.10, height: 0.70, color: '#0f2847' },
             { x: 0.60, width: 0.06, height: 0.55, color: '#153a66' },
             { x: 0.68, width: 0.09, height: 0.60, color: '#0a1628' },
             { x: 0.79, width: 0.05, height: 0.40, color: '#1a4d85' },
@@ -67,21 +63,18 @@ class FrankfurtSkyline {
         const ctx = this.ctx;
         const height = this.height;
 
-        // Draw gradient background
         const gradient = ctx.createLinearGradient(0, 0, 0, height);
-        gradient.addColorStop(0, '#050a14');
-        gradient.addColorStop(0.5, '#0a1628');
-        gradient.addColorStop(1, '#0f2847');
+        gradient.addColorStop(0, '#030406');
+        gradient.addColorStop(0.55, '#07090e');
+        gradient.addColorStop(1, '#0b1220');
 
         ctx.fillStyle = gradient;
         ctx.fillRect(0, 0, this.width, height);
 
-        // Draw buildings
         this.buildings.forEach(building => {
-            // Add color variation
-            const hue = Math.sin(building.x * 10) * 20 + 210;
-            const saturation = 70 + Math.sin(building.x * 5) * 10;
-            const lightness = 20 + Math.sin(building.x * 3) * 5;
+            const hue = Math.sin(building.x * 10) * 8 + 220;
+            const saturation = 28 + Math.sin(building.x * 5) * 8;
+            const lightness = 9 + Math.sin(building.x * 3) * 3;
             ctx.fillStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 
             ctx.fillRect(
@@ -91,7 +84,6 @@ class FrankfurtSkyline {
                 building.height * height
             );
 
-            // Add windows
             const windowWidth = 0.004 * this.width;
             const windowHeight = 0.008 * height;
             const windowSpacing = 0.012 * this.width;
@@ -103,7 +95,7 @@ class FrankfurtSkyline {
                      x < (building.x + building.width) * this.width - windowWidth;
                      x += windowSpacing * 1.2) {
                     if (Math.random() > 0.4) {
-                        ctx.fillStyle = `rgba(100, 180, 255, ${Math.random() * 0.6 + 0.4})`;
+                        ctx.fillStyle = `rgba(212, 175, 55, ${Math.random() * 0.22 + 0.12})`;
                         ctx.fillRect(x, y, windowWidth, windowHeight);
                     }
                 }
@@ -138,11 +130,8 @@ class FrankfurtSkyline {
         const centerY = this.height * 0.5;
         const maxRadius = Math.max(this.width, this.height) * 1.2;
 
-        // Draw rotating color ray
         for (let i = 0; i < 3; i++) {
-            const angle = this.rayAngle + (i * Math.PI * 2 / 3);
-            const colors = ['#ffd700', '#ff00ff', '#00ffff'];
-
+            const colors = ['#d4af37', '#b91c8c', '#3d4f66'];
             const gradient = ctx.createRadialGradient(
                 centerX, centerY, 0,
                 centerX, centerY, maxRadius
@@ -152,21 +141,18 @@ class FrankfurtSkyline {
             gradient.addColorStop(0.5, colors[i] + '30');
             gradient.addColorStop(0.6, colors[i] + '10');
             gradient.addColorStop(1, 'transparent');
-
             ctx.fillStyle = gradient;
             ctx.fillRect(0, 0, this.width, this.height);
         }
 
-        // Draw particles
         for (let i = 0; i < 30; i++) {
             const distance = (Math.sin(Date.now() * 0.001 + i) * 0.5 + 0.5) * maxRadius * 0.7;
             const particleAngle = this.rayAngle + (Math.sin(Date.now() * 0.0005 + i) * 0.2);
             const x = centerX + Math.cos(particleAngle) * distance;
             const y = centerY + Math.sin(particleAngle) * distance;
             const size = (Math.sin(Date.now() * 0.002 + i) * 0.5 + 0.5) * 2;
-
-            ctx.globalAlpha = 0.6;
-            ctx.fillStyle = ['#ffd700', '#ff00ff', '#00ffff'][i % 3];
+            ctx.globalAlpha = 0.55;
+            ctx.fillStyle = ['#d4af37', '#b91c8c', '#8a6a16'][i % 3];
             ctx.beginPath();
             ctx.arc(x, y, size, 0, Math.PI * 2);
             ctx.fill();
@@ -184,9 +170,6 @@ class FrankfurtSkyline {
     }
 }
 
-// ============================================
-// Navigation
-// ============================================
 class Navigation {
     constructor() {
         this.navbar = document.getElementById('main-nav');
@@ -194,7 +177,6 @@ class Navigation {
         this.navLinks = document.querySelector('.nav-links');
         this.navLinkItems = document.querySelectorAll('.nav-link');
         this.backToTop = document.getElementById('back-to-top');
-
         this.bindEvents();
     }
 
@@ -202,11 +184,9 @@ class Navigation {
         if (this.navToggle && this.navLinks) {
             this.navToggle.addEventListener('click', () => this.toggleMobileMenu());
         }
-
         this.navLinkItems.forEach(link => {
             link.addEventListener('click', () => this.closeMobileMenu());
         });
-
         document.addEventListener('click', (e) => {
             if (this.navLinks && !this.navLinks.contains(e.target) &&
                 !this.navToggle.contains(e.target) &&
@@ -214,7 +194,6 @@ class Navigation {
                 this.closeMobileMenu();
             }
         });
-
         window.addEventListener('scroll', () => this.handleScroll());
     }
 
@@ -236,24 +215,13 @@ class Navigation {
 
     handleScroll() {
         const scrollY = window.scrollY;
-
-        if (scrollY > 50) {
-            this.navbar.classList.add('scrolled');
-        } else {
-            this.navbar.classList.remove('scrolled');
-        }
-
-        if (this.backToTop && scrollY > window.innerHeight) {
-            this.backToTop.classList.add('visible');
-        } else if (this.backToTop) {
-            this.backToTop.classList.remove('visible');
-        }
+        if (scrollY > 50) this.navbar.classList.add('scrolled');
+        else this.navbar.classList.remove('scrolled');
+        if (this.backToTop && scrollY > window.innerHeight) this.backToTop.classList.add('visible');
+        else if (this.backToTop) this.backToTop.classList.remove('visible');
     }
 }
 
-// ============================================
-// Back to Top Button
-// ============================================
 class BackToTop {
     constructor() {
         this.backToTop = document.getElementById('back-to-top');
@@ -261,21 +229,13 @@ class BackToTop {
             this.backToTop.addEventListener('click', () => this.scrollToTop());
         }
     }
-
     scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 }
 
-// ============================================
-// Initialize Everything
-// ============================================
 document.addEventListener('DOMContentLoaded', () => {
     new FrankfurtSkyline();
     new Navigation();
     new BackToTop();
-    console.log('Falk Thore Gebhardt Website initialized successfully');
 });
