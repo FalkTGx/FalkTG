@@ -1,0 +1,86 @@
+:root {
+    --color-primary-dark: #05070c;
+    --color-primary: #0b1220;
+    --color-primary-light: #152033;
+    --color-yellow: #d4af37;
+    --color-yellow-light: #f0d78c;
+    --color-magenta: #b91c8c;
+    --color-magenta-light: #d946a8;
+    --color-gray-300: #c8cdd6;
+    --color-gray-400: #9aa3b2;
+    --color-gray-500: #6b7380;
+    --spacing-xs: 0.25rem;
+    --shadow-glow-yellow: 0 0 22px rgba(212, 175, 55, 0.28);
+    --shadow-glow-magenta: 0 0 22px rgba(185, 28, 140, 0.28);
+}
+
+body {
+    background-color: #05070c;
+}
+
+.navbar {
+    background: rgba(5, 7, 12, 0.92);
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.logo-mark {
+    width: 40px;
+    height: 40px;
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.35));
+}
+
+.logo-text {
+    font-size: 1.15rem;
+    background: linear-gradient(135deg, var(--color-yellow-light), var(--color-yellow));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.image-placeholder {
+    width: 340px;
+    height: 340px;
+}
+
+.hero-falcon {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 28px rgba(212, 175, 55, 0.28));
+}
+
+.content-card,
+.service-card,
+.contact-method {
+    background: rgba(11, 18, 32, 0.72);
+}
+
+.content-card:hover,
+.service-card:hover,
+.contact-method:hover {
+    background: rgba(18, 28, 46, 0.88);
+}
+
+.politics-section .section-tag,
+.card-icon {
+    background: rgba(212, 175, 55, 0.12);
+    border-color: rgba(212, 175, 55, 0.32);
+}
+
+.consulting-section .section-tag,
+.contact-section .section-tag,
+.service-icon,
+.method-icon {
+    background: rgba(185, 28, 140, 0.12);
+    border-color: rgba(185, 28, 140, 0.32);
+}
+
+.service-card.featured {
+    background: linear-gradient(135deg, rgba(185, 28, 140, 0.12) 0%, rgba(11, 18, 32, 0.72) 100%);
+    border-color: rgba(185, 28, 140, 0.3);
+}
