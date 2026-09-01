@@ -1,122 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>FalkTG | Institutional Transformation</title>
-  <meta name="description" content="Falk Thore Gebhardt (FalkTG) — Institutional Transformation for financial and public institutions.">
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/jpeg" href="assets/falcon-mark.jpg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <canvas id="skyline-canvas"></canvas>
-  <div class="wind-layer"></div>
+  <canvas id="skyline-canvas"></canvas><div class="wind-layer"></div>
   <div class="wrap">
-    <header class="nav">
-      <div class="nav-inner">
-        <a class="brand" href="index.html"><img src="assets/falcon-mark.jpg" alt="FalkTG falcon"><b>FalkTG</b></a>
-        <button class="nav-toggle" aria-label="Menu">☰</button>
-        <ul class="nav-links">
-          <li><a class="active" href="index.html">Home</a></li>
-          <li><a href="fint.html">Financial Institutions</a></li>
-          <li><a href="pint.html">Public Institutions</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-    </header>
+    <header class="nav"><div class="nav-inner">
+      <a class="brand" href="index.html"><img data-media="mark" alt="FalkTG falcon"><b>FalkTG</b></a>
+      <button class="nav-toggle" aria-label="Menu">☰</button>
+      <ul class="nav-links">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="fint.html">Financial Institutions</a></li>
+        <li><a href="pint.html">Public Institutions</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div></header>
     <section class="hero">
       <div class="hero-copy">
         <p class="kicker">Falk Thore Gebhardt · FalkTG</p>
         <h1>Institutional Transformation</h1>
         <p class="tag">Gen Z in the institution — not in the waiting room.</p>
-        <p class="lead">Under 30. More than a decade in financial regulation and politics. Over 100 million impressions a year. Frankfurt-built: gold discipline, magenta pace.</p>
+        <p class="lead">Under 30. More than a decade in financial regulation and politics. Frankfurt on the Main: gold discipline, magenta pace.</p>
         <div class="cta-row">
           <a class="btn btn-red" href="fint.html">Financial Institutions</a>
           <a class="btn btn-gold" href="pint.html">Public Institutions</a>
         </div>
       </div>
-      <div class="hero-stage">
-        <img class="portrait" src="assets/hero.jpg" alt="FalkTG — pinstripe suit, falcon rising over Frankfurt">
-        <div class="facts">
-          <span><b>&gt;10 yrs</b> FinReg &amp; politics</span>
-          <span><b>&lt;30</b> Gen Z operator</span>
-          <span><b>&gt;100m</b> impressions / year</span>
-        </div>
+      <div class="hero-facts">
+        <span><b>&gt;10 yrs</b> FinReg &amp; politics</span>
+        <span><b>&lt;30</b> Gen Z operator</span>
+        <span><b>&gt;100m</b> impressions / year</span>
+      </div>
+    </section>
+    <section class="section" id="path">
+      <div class="section-head"><p class="kicker">Flight path</p><h2>From hatch to the Main</h2><p class="muted">The bird learns the city before it fills the skyline.</p></div>
+      <div class="life">
+        <div class="life-path"></div>
+        <svg class="chick" viewBox="0 0 24 24" aria-hidden="true"><path fill="#d4af37" d="M20 12c-2-5-6-8-10-7-2 4-1 7 2 9-4 0-7 2-8 5 6 1 11-1 14-5 2 1 3 2 4 5 1-3 0-6-2-7z"/></svg>
+        <article class="life-item"><div class="yr">Since 2013</div><h3>Politically active</h3></article>
+        <article class="life-item"><div class="yr">2014</div><h3>State chair, Liberale Schüler NRW</h3></article>
+        <article class="life-item"><div class="yr">2016</div><h3>Career on the financial centre begins</h3></article>
+        <article class="life-item"><div class="yr">2020</div><h3>Station in the German Bundestag</h3></article>
+        <article class="life-item"><div class="yr">2025</div><h3>Bundeswehr basic training</h3></article>
+        <article class="life-item"><div class="yr">2026</div><h3>100 million impressions on X</h3></article>
       </div>
     </section>
     <section class="section">
       <div class="section-head"><p class="kicker">Two desks</p><h2>Markets and the state</h2></div>
       <div class="desks">
-        <article class="desk fint">
-          <p class="kicker">Magenta</p>
-          <h3>Financial Institution Transformation</h3>
-          <p class="code">FinT</p>
-          <p class="muted">Banks, investment firms, payment institutions and fintechs.</p>
-          <ul><li>FinReg Risk Assessment</li><li>Process Transformation</li></ul>
-          <a class="btn btn-red" href="fint.html">Open FinT</a>
-        </article>
-        <article class="desk pint">
-          <p class="kicker">Gold</p>
-          <h3>Public Institution Transformation</h3>
-          <p class="code">PinT</p>
-          <p class="muted">Government, administration and political office-holders.</p>
-          <ul><li>Administrative process optimisation</li><li>Strategy and communications counsel</li></ul>
-          <a class="btn btn-gold" href="pint.html">Open PinT</a>
-        </article>
+        <article class="card fint"><p class="kicker">Magenta</p><h3>Financial Institution Transformation</h3><p class="code">FinT</p><p class="muted">Banks, investment and payment firms, fintechs.</p><ul><li>FinReg Risk Assessment</li><li>Process Transformation</li></ul><a class="btn btn-red" href="fint.html">Open FinT</a></article>
+        <article class="card pint"><p class="kicker">Gold</p><h3>Public Institution Transformation</h3><p class="code">PinT</p><p class="muted">Government, administration, political office.</p><ul><li>Administrative process optimisation</li><li>Strategy and communications counsel</li></ul><a class="btn btn-gold" href="pint.html">Open PinT</a></article>
       </div>
     </section>
-    <section class="section" id="cv">
-      <div class="section-head"><p class="kicker">Path</p><h2>Curriculum — sketched</h2></div>
-      <div class="cv">
-        <article class="cv-item"><div class="year">2014–2016</div><div><h4>Liberal schools &amp; JuLis NRW</h4><p>State chair, Liberale Schüler NRW; Junge Liberale Bochum / NRW.</p></div></article>
-        <article class="cv-item"><div class="year">2016–2017</div><div><h4>NRW.BANK</h4><p>Dual studies, Banking &amp; Finance.</p></div></article>
-        <article class="cv-item"><div class="year">2017–2020</div><div><h4>Deutsche Bundesbank</h4><p>Inspector candidate. B.Sc. Central Banking.</p></div></article>
-        <article class="cv-item"><div class="year">2020–now</div><div><h4>FDP Frankfurt</h4><p>Board, deputy chair OG 2; Ortsbeirat 2, faction chair.</p></div></article>
-        <article class="cv-item"><div class="year">2020–2025</div><div><h4>Goethe University</h4><p>Law, Frankfurt.</p></div></article>
-        <article class="cv-item"><div class="year">2020–2023</div><div><h4>Banking supervision QA</h4><p>Deutsche Bundesbank.</p></div></article>
-        <article class="cv-item"><div class="year">2023–now</div><div><h4>SREP / national supervision</h4><p>Banks, financial, securities and payment institutions.</p></div></article>
-        <article class="cv-item"><div class="year">2025–now</div><div><h4>Bundeswehr reserve</h4><p>Reservist.</p></div></article>
-      </div>
-    </section>
-    <section class="section" id="contact">
-      <div class="section-head"><p class="kicker">Contact</p><h2>Start a mandate</h2></div>
-      <form class="form" id="contact-form">
-        <label>Inquiry
-          <select name="type" id="inquiry-type" required>
-            <option value="">Select…</option>
-            <option value="financial">a) Financial Institution</option>
-            <option value="public">b) Public Institution</option>
-            <option value="other">c) Other</option>
-          </select>
-        </label>
-        <label id="fin-sub" class="hidden">Institution
-          <select name="fin_kind">
-            <option value="bank">1) Bank</option>
-            <option value="investment_payment">2) Investment firm / payment firm</option>
-            <option value="fintech">3) FinTech</option>
-          </select>
-        </label>
-        <label id="pub-sub" class="hidden">Institution
-          <select name="pub_kind">
-            <option value="administration">1) Administration</option>
-            <option value="faction">2) Parliamentary group / politician</option>
-          </select>
-        </label>
-        <label>Name <input name="name" required></label>
-        <label>Email <input type="email" name="email" required></label>
-        <label>Message <textarea name="message" required></textarea></label>
-        <button class="btn btn-gold" type="submit">Send inquiry</button>
-        <p class="form-note">Opens your mail client to consulting@falk-gebhardt.de.</p>
-      </form>
-    </section>
-    <footer class="footer">
-      <p>© 2026 Falk Thore Gebhardt (FalkTG)</p>
-      <p><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></p>
-    </footer>
+    <footer class="footer"><p>© 2026 Falk Thore Gebhardt (FalkTG)</p><p><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a> · <a href="contact.html">Contact</a></p></footer>
   </div>
+  <script src="js/media-hero.js"></script><script src="js/media-mark.js"></script><script src="js/media-portrait.js"></script>
   <script src="js/main.js"></script>
-</body>
-</html>
+</body></html>

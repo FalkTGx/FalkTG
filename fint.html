@@ -2,22 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Financial Institutions | FalkTG FinT</title>
+  <title>Financial Institutions | FalkTG</title>
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" type="image/jpeg" href="assets/falcon-mark.jpg">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
   <canvas id="skyline-canvas"></canvas><div class="wind-layer"></div>
   <div class="wrap">
     <header class="nav"><div class="nav-inner">
-      <a class="brand" href="index.html"><img src="assets/falcon-mark.jpg" alt="FalkTG"><b>FalkTG</b></a>
+      <a class="brand" href="index.html"><img data-media="mark" alt="FalkTG"><b>FalkTG</b></a>
       <button class="nav-toggle" aria-label="Menu">☰</button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a class="active" href="fint.html">Financial Institutions</a></li>
         <li><a href="pint.html">Public Institutions</a></li>
-        <li><a href="index.html#contact">Contact</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </div></header>
     <div class="fint-track"><div class="fint-sticky"><div class="scene">
@@ -27,14 +26,15 @@
       <span class="chip out">Board file</span><span class="chip out">Control map</span><span class="chip out">Capital pack</span><span class="chip out">Liquidity run</span><span class="chip out">Process rebuild</span><span class="chip out">Comms protocol</span><span class="chip out">AML evidence</span>
     </div></div></div>
     <section class="section">
-      <div class="section-head"><p class="kicker">Method</p><h2>Independent, GDPR-bound</h2><p class="muted">Raised independently. Processed under the GDPR.</p></div>
-      <div class="prices">
-        <article class="price"><h3>Bank</h3><strong>€2,900</strong><p class="muted">Initial assessment</p><p class="muted">then €900 / month</p></article>
-        <article class="price"><h3>Investment / payment firm</h3><strong>€1,900</strong><p class="muted">Initial assessment</p><p class="muted">then €600 / month</p></article>
-        <article class="price"><h3>FinTech</h3><strong>€300</strong><p class="muted">per month</p></article>
+      <div class="section-head"><p class="kicker">Fees</p><h2>Choose the house</h2><p class="muted">Click a card to open a pre-filled inquiry.</p></div>
+      <div class="price-row">
+        <a class="card fint" href="contact.html?desk=fint&kind=bank"><h3>Bank</h3><strong>€2,900</strong><p class="muted">Initial assessment</p><p class="muted">then €900 / month</p></a>
+        <a class="card fint" href="contact.html?desk=fint&kind=ifpf"><h3>IF / PF</h3><strong>€1,900</strong><p class="muted">Investment or payment firm</p><p class="muted">then €600 / month</p></a>
+        <a class="card fint" href="contact.html?desk=fint&kind=fintech"><h3>FinTech — Start-up</h3><strong>€300</strong><p class="muted">per month</p></a>
       </div>
+      <p class="note" style="margin-top:1.4rem"><a class="btn btn-red" href="contact.html?desk=fint">Write without choosing a tier</a></p>
     </section>
     <footer class="footer"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></footer>
   </div>
-  <script src="js/main.js"></script>
+  <script src="js/media-hero.js"></script><script src="js/media-mark.js"></script><script src="js/main.js"></script>
 </body></html>
