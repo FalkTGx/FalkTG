@@ -1,241 +1,102 @@
-/**
- * Falk Thore Gebhardt - Modern Landing Page
- * Main JavaScript for interactivity and Frankfurt skyline animation
- */
-
-class FrankfurtSkyline {
-    constructor() {
-        this.canvas = document.getElementById('skyline-canvas');
-        if (!this.canvas) return;
-
-        this.ctx = this.canvas.getContext('2d');
-        this.buildings = this.generateBuildings();
-        this.stars = this.generateStars();
-        this.rayAngle = 0;
-        this.raySpeed = 0.00018;
-
-        this.resize();
-        this.bindEvents();
-        this.animate();
-    }
-
-    generateBuildings() {
-        return [
-            { x: 0.05, width: 0.04, height: 0.25, color: '#1a4d85' },
-            { x: 0.12, width: 0.06, height: 0.40, color: '#0f2847' },
-            { x: 0.20, width: 0.05, height: 0.30, color: '#153a66' },
-            { x: 0.28, width: 0.08, height: 0.50, color: '#0a1628' },
-            { x: 0.38, width: 0.07, height: 0.45, color: '#1a4d85' },
-            { x: 0.48, width: 0.10, height: 0.70, color: '#0f2847' },
-            { x: 0.60, width: 0.06, height: 0.55, color: '#153a66' },
-            { x: 0.68, width: 0.09, height: 0.60, color: '#0a1628' },
-            { x: 0.79, width: 0.05, height: 0.40, color: '#1a4d85' },
-            { x: 0.86, width: 0.07, height: 0.45, color: '#0f2847' }
-        ];
-    }
-
-    generateStars() {
-        const stars = [];
-        for (let i = 0; i < 80; i++) {
-            stars.push({
-                x: Math.random(),
-                y: Math.random() * 0.25,
-                size: Math.random() * 1.5 + 0.5,
-                opacity: Math.random() * 0.7 + 0.3,
-                twinkle: Math.random() * Math.PI * 2
-            });
+const buildings = [
+  { x: 0.04, w: 0.05, h: 0.28, type: "block" },
+  { x: 0.10, w: 0.045, h: 0.42, type: "block" },
+  { x: 0.16, w: 0.07, h: 0.62, type: "commerzbank" },
+  { x: 0.25, w: 0.05, h: 0.36, type: "block" },
+  { x: 0.32, w: 0.055, h: 0.58, type: "messeturm" },
+  { x: 0.40, w: 0.06, h: 0.48, type: "block" },
+  { x: 0.48, w: 0.07, h: 0.70, type: "maintower" },
+  { x: 0.57, w: 0.08, h: 0.52, type: "ecb" },
+  { x: 0.67, w: 0.04, h: 0.40, type: "block" },
+  { x: 0.73, w: 0.05, h: 0.46, type: "twin" },
+  { x: 0.79, w: 0.05, h: 0.44, type: "twin" },
+  { x: 0.87, w: 0.07, h: 0.34, type: "block" }
+];
+function drawSkyline() {
+  const canvas = document.getElementById("skyline-canvas");
+  if (!canvas) return;
+  const ctx = canvas.getContext("2d");
+  const w = canvas.width = innerWidth;
+  const h = canvas.height = innerHeight;
+  const g = ctx.createLinearGradient(0, 0, 0, h);
+  g.addColorStop(0, "#05060a"); g.addColorStop(0.55, "#0a1224"); g.addColorStop(1, "#140814");
+  ctx.fillStyle = g; ctx.fillRect(0, 0, w, h);
+  buildings.forEach((b, i) => {
+    const x = b.x * w, bw = b.w * w, bh = b.h * h * 0.55, y = h - bh;
+    ctx.fillStyle = i % 2 ? "#10182c" : "#162038";
+    ctx.fillRect(x, y, bw, bh);
+    if (b.type === "commerzbank") { ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + bw / 2, y - bh * 0.18); ctx.lineTo(x + bw, y); ctx.fill(); }
+    if (b.type === "messeturm") { ctx.beginPath(); ctx.moveTo(x + bw * 0.15, y); ctx.lineTo(x + bw / 2, y - bh * 0.16); ctx.lineTo(x + bw * 0.85, y); ctx.fill(); }
+    if (b.type === "maintower") ctx.fillRect(x + bw * 0.45, y - 28, 3, 28);
+    const ww = Math.max(2, bw * 0.08);
+    for (let yy = y + 10; yy < h - 16; yy += 11) {
+      for (let xx = x + 6; xx < x + bw - 6; xx += ww + 5) {
+        if (Math.random() > 0.35) {
+          ctx.fillStyle = Math.random() > 0.8 ? "rgba(212,175,55,.35)" : "rgba(180,200,255,.16)";
+          ctx.fillRect(xx, yy, ww, 5);
         }
-        return stars;
+      }
     }
-
-    resize() {
-        this.width = window.innerWidth;
-        this.height = window.innerHeight;
-        this.canvas.width = this.width;
-        this.canvas.height = this.height;
-    }
-
-    bindEvents() {
-        window.addEventListener('resize', () => this.resize());
-    }
-
-    drawBuildings() {
-        const ctx = this.ctx;
-        const height = this.height;
-
-        const gradient = ctx.createLinearGradient(0, 0, 0, height);
-        gradient.addColorStop(0, '#030406');
-        gradient.addColorStop(0.55, '#07090e');
-        gradient.addColorStop(1, '#0b1220');
-
-        ctx.fillStyle = gradient;
-        ctx.fillRect(0, 0, this.width, height);
-
-        this.buildings.forEach(building => {
-            const hue = Math.sin(building.x * 10) * 8 + 220;
-            const saturation = 28 + Math.sin(building.x * 5) * 8;
-            const lightness = 9 + Math.sin(building.x * 3) * 3;
-            ctx.fillStyle = `hsl(${hue}, ${saturation}%, ${lightness}%)`;
-
-            ctx.fillRect(
-                building.x * this.width,
-                height - building.height * height,
-                building.width * this.width,
-                building.height * height
-            );
-
-            const windowWidth = 0.004 * this.width;
-            const windowHeight = 0.008 * height;
-            const windowSpacing = 0.012 * this.width;
-
-            for (let y = height - building.height * height + windowHeight;
-                 y < height - 0.05 * height;
-                 y += windowSpacing) {
-                for (let x = building.x * this.width + windowWidth;
-                     x < (building.x + building.width) * this.width - windowWidth;
-                     x += windowSpacing * 1.2) {
-                    if (Math.random() > 0.4) {
-                        ctx.fillStyle = `rgba(212, 175, 55, ${Math.random() * 0.22 + 0.12})`;
-                        ctx.fillRect(x, y, windowWidth, windowHeight);
-                    }
-                }
-            }
-        });
-    }
-
-    drawStars() {
-        const ctx = this.ctx;
-        const height = this.height;
-
-        this.stars.forEach(star => {
-            const twinkle = Math.sin(star.twinkle + Date.now() * 0.001) * 0.3 + 0.7;
-            ctx.globalAlpha = star.opacity * twinkle;
-            ctx.fillStyle = '#ffffff';
-            ctx.beginPath();
-            ctx.arc(
-                star.x * this.width,
-                star.y * height,
-                star.size,
-                0,
-                Math.PI * 2
-            );
-            ctx.fill();
-            ctx.globalAlpha = 1;
-        });
-    }
-
-    drawRay() {
-        const ctx = this.ctx;
-        const centerX = this.width * 0.5;
-        const centerY = this.height * 0.5;
-        const maxRadius = Math.max(this.width, this.height) * 1.2;
-
-        for (let i = 0; i < 3; i++) {
-            const colors = ['#d4af37', '#b91c8c', '#3d4f66'];
-            const gradient = ctx.createRadialGradient(
-                centerX, centerY, 0,
-                centerX, centerY, maxRadius
-            );
-            gradient.addColorStop(0, 'transparent');
-            gradient.addColorStop(0.4, 'transparent');
-            gradient.addColorStop(0.5, colors[i] + '30');
-            gradient.addColorStop(0.6, colors[i] + '10');
-            gradient.addColorStop(1, 'transparent');
-            ctx.fillStyle = gradient;
-            ctx.fillRect(0, 0, this.width, this.height);
-        }
-
-        for (let i = 0; i < 30; i++) {
-            const distance = (Math.sin(Date.now() * 0.001 + i) * 0.5 + 0.5) * maxRadius * 0.7;
-            const particleAngle = this.rayAngle + (Math.sin(Date.now() * 0.0005 + i) * 0.2);
-            const x = centerX + Math.cos(particleAngle) * distance;
-            const y = centerY + Math.sin(particleAngle) * distance;
-            const size = (Math.sin(Date.now() * 0.002 + i) * 0.5 + 0.5) * 2;
-            ctx.globalAlpha = 0.55;
-            ctx.fillStyle = ['#d4af37', '#b91c8c', '#8a6a16'][i % 3];
-            ctx.beginPath();
-            ctx.arc(x, y, size, 0, Math.PI * 2);
-            ctx.fill();
-            ctx.globalAlpha = 1;
-        }
-
-        this.rayAngle += this.raySpeed;
-    }
-
-    animate() {
-        this.drawBuildings();
-        this.drawStars();
-        this.drawRay();
-        requestAnimationFrame(() => this.animate());
-    }
+  });
 }
-
-class Navigation {
-    constructor() {
-        this.navbar = document.getElementById('main-nav');
-        this.navToggle = document.querySelector('.nav-toggle');
-        this.navLinks = document.querySelector('.nav-links');
-        this.navLinkItems = document.querySelectorAll('.nav-link');
-        this.backToTop = document.getElementById('back-to-top');
-        this.bindEvents();
-    }
-
-    bindEvents() {
-        if (this.navToggle && this.navLinks) {
-            this.navToggle.addEventListener('click', () => this.toggleMobileMenu());
-        }
-        this.navLinkItems.forEach(link => {
-            link.addEventListener('click', () => this.closeMobileMenu());
-        });
-        document.addEventListener('click', (e) => {
-            if (this.navLinks && !this.navLinks.contains(e.target) &&
-                !this.navToggle.contains(e.target) &&
-                this.navLinks.classList.contains('active')) {
-                this.closeMobileMenu();
-            }
-        });
-        window.addEventListener('scroll', () => this.handleScroll());
-    }
-
-    toggleMobileMenu() {
-        if (this.navToggle && this.navLinks) {
-            this.navToggle.classList.toggle('active');
-            this.navLinks.classList.toggle('active');
-            document.body.style.overflow = this.navLinks.classList.contains('active') ? 'hidden' : '';
-        }
-    }
-
-    closeMobileMenu() {
-        if (this.navToggle && this.navLinks) {
-            this.navToggle.classList.remove('active');
-            this.navLinks.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-    }
-
-    handleScroll() {
-        const scrollY = window.scrollY;
-        if (scrollY > 50) this.navbar.classList.add('scrolled');
-        else this.navbar.classList.remove('scrolled');
-        if (this.backToTop && scrollY > window.innerHeight) this.backToTop.classList.add('visible');
-        else if (this.backToTop) this.backToTop.classList.remove('visible');
-    }
+function wind() {
+  const layer = document.querySelector(".wind-layer");
+  if (!layer) return;
+  for (let i = 0; i < 10; i++) {
+    const s = document.createElement("div");
+    s.className = "wind-streak";
+    s.style.top = 8 + Math.random() * 80 + "%";
+    s.style.width = 18 + Math.random() * 28 + "vw";
+    s.style.setProperty("--r", (Math.random() * 16 - 10) + "deg");
+    s.style.animationDelay = (Math.random() * 8) + "s";
+    layer.appendChild(s);
+  }
 }
-
-class BackToTop {
-    constructor() {
-        this.backToTop = document.getElementById('back-to-top');
-        if (this.backToTop) {
-            this.backToTop.addEventListener('click', () => this.scrollToTop());
-        }
-    }
-    scrollToTop() {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
+function nav() {
+  const t = document.querySelector(".nav-toggle");
+  const links = document.querySelector(".nav-links");
+  if (t && links) t.addEventListener("click", () => links.classList.toggle("open"));
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    new FrankfurtSkyline();
-    new Navigation();
-    new BackToTop();
+function formLogic() {
+  const type = document.getElementById("inquiry-type");
+  const fin = document.getElementById("fin-sub");
+  const pub = document.getElementById("pub-sub");
+  if (!type) return;
+  const sync = () => {
+    fin.classList.toggle("hidden", type.value !== "financial");
+    pub.classList.toggle("hidden", type.value !== "public");
+  };
+  type.addEventListener("change", sync); sync();
+  document.getElementById("contact-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    const data = new FormData(e.target);
+    const lines = []; data.forEach((v, k) => lines.push(k + ": " + v));
+    location.href = "mailto:consulting@falk-gebhardt.de?subject=" + encodeURIComponent("FalkTG inquiry") + "&body=" + encodeURIComponent(lines.join("\n"));
+  });
+}
+function fintScene() {
+  const track = document.querySelector(".fint-track");
+  const hole = document.querySelector(".hole");
+  if (!track || !hole) return;
+  const inbound = [...document.querySelectorAll(".chip.in")];
+  const outbound = [...document.querySelectorAll(".chip.out")];
+  const place = (el, ang, dist) => { el.style.transform = `translate(-50%, -50%) translate(${Math.cos(ang) * dist}px, ${Math.sin(ang) * dist}px)`; };
+  const tick = () => {
+    const r = track.getBoundingClientRect();
+    const p = Math.min(1, Math.max(0, (0 - r.top) / (r.height - innerHeight)));
+    inbound.forEach((el, i) => {
+      const a = (i / inbound.length) * Math.PI * 2 + p * 1.2;
+      const dist = p < 0.55 ? 210 * (1 - p / 0.55) : 0;
+      el.style.opacity = p < 0.62 ? "1" : "0"; place(el, a, dist);
+    });
+    hole.style.transform = `translate(-50%, -50%) scale(${0.72 + Math.min(p, 0.7) * 0.35})`;
+    outbound.forEach((el, i) => {
+      const q = Math.max(0, (p - 0.62) / 0.38);
+      el.style.opacity = q; place(el, (i / outbound.length) * Math.PI * 2 - 0.4, 70 + q * 200);
+    });
+  };
+  addEventListener("scroll", tick, { passive: true }); tick();
+}
+document.addEventListener("DOMContentLoaded", () => {
+  drawSkyline(); addEventListener("resize", drawSkyline); wind(); nav(); formLogic(); fintScene();
 });
