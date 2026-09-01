@@ -1,13 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
   <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ff00ff;stop-opacity:1" />
+    <linearGradient id="g" x1="18%" y1="8%" x2="88%" y2="96%">
+      <stop offset="0%" stop-color="#f8ecc0"/>
+      <stop offset="45%" stop-color="#d4af37"/>
+      <stop offset="100%" stop-color="#7a5810"/>
     </linearGradient>
   </defs>
-  <circle cx="50" cy="50" r="50" fill="#0a1628"/>
-  <path d="M10 70 L15 50 L25 55 L30 40 L40 45 L45 30 L55 35 L65 25 L75 30 L85 40 L90 50 L95 60 L95 70 Z"
-        fill="url(#grad)" opacity="0.8"/>
-  <text x="50" y="85" font-family="Arial, sans-serif" font-size="20" font-weight="bold"
-        fill="#ffd700" text-anchor="middle">FTG</text>
+  <circle cx="100" cy="100" r="97" fill="#07090e"/>
+  <circle cx="100" cy="100" r="96" fill="none" stroke="#d4af37" stroke-width="6"/>
+  <path fill="url(#g)" d="M46 132c4-38 28-68 62-76 8-18 28-28 46-16 8 5 14 14 16 24 10 4 20 12 18 24-2 8-10 11-18 10l-16-3c-4 14-16 28-34 36-22 10-46 16-68 8-10-4-12-12-6-7z"/>
+  <path fill="#f8ecc0" d="M164 90c8 4 18 10 22 16 3 4-1 9-7 8l-20-8c2-6 3-12 5-16z"/>
+  <circle cx="126" cy="78" r="6.5" fill="#1a1408"/>
 </svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Goldener Falke">
+  <defs>
+    <linearGradient id="goldMain" x1="18%" y1="8%" x2="88%" y2="96%">
+      <stop offset="0%" stop-color="#f8ecc0"/>
+      <stop offset="38%" stop-color="#e0c25a"/>
+      <stop offset="72%" stop-color="#c49a2a"/>
+      <stop offset="100%" stop-color="#7a5810"/>
+    </linearGradient>
+    <linearGradient id="goldEdge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f3e3a0"/>
+      <stop offset="100%" stop-color="#8d6a16"/>
+    </linearGradient>
+    <radialGradient id="goldGlow" cx="48%" cy="42%" r="58%">
+      <stop offset="0%" stop-color="#f6e7b0" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#05070c" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <circle cx="100" cy="100" r="97" fill="#07090e"/>
+  <circle cx="100" cy="100" r="97" fill="url(#goldGlow)"/>
+  <circle cx="100" cy="100" r="96" fill="none" stroke="url(#goldEdge)" stroke-width="3"/>
+  <path fill="url(#goldMain)" d="M46 132c4-38 28-68 62-76 8-18 28-28 46-16 8 5 14 14 16 24 10 4 20 12 18 24-2 8-10 11-18 10l-16-3c-4 14-16 28-34 36-22 10-46 16-68 8-10-4-12-12-6-7z"/>
+  <path fill="#5c430c" opacity="0.35" d="M78 86c10-8 24-16 40-14 2 10-6 20-16 26-12 6-22 8-28 6 0-6 2-12 4-18z"/>
+  <path fill="#3d2c08" d="M148 78c10 2 20 10 24 18 2 6-2 10-8 9l-18-6c2-8 2-16 2-21z"/>
+  <path fill="#f8ecc0" d="M164 90c8 4 18 10 22 16 3 4-1 9-7 8l-20-8c2-6 3-12 5-16z"/>
+  <circle cx="126" cy="78" r="6.5" fill="#1a1408"/>
+  <circle cx="128" cy="76.5" r="2.2" fill="#f8ecc0"/>
+  <path fill="none" stroke="#7a5810" stroke-width="1.6" stroke-linecap="round" d="M72 118c14 8 32 12 50 6M64 108c16 6 34 8 50 2"/>
+</svg>
