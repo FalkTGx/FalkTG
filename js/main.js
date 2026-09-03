@@ -46,35 +46,13 @@ function rebuildSkyCache() {
     const dy = h - dh;
     ctx.drawImage(skylineImg, dx, dy, dw, dh);
     const veil = ctx.createLinearGradient(0, 0, 0, h);
-    veil.addColorStop(0, "rgba(5,10,24,.78)");
-    veil.addColorStop(0.38, "rgba(5,10,24,.42)");
-    veil.addColorStop(0.72, "rgba(5,10,24,.18)");
-    veil.addColorStop(1, "rgba(5,10,24,.5)");
+    veil.addColorStop(0, "rgba(5,10,24,.9)");
+    veil.addColorStop(0.4, "rgba(5,10,24,.78)");
+    veil.addColorStop(0.75, "rgba(5,10,24,.62)");
+    veil.addColorStop(1, "rgba(5,10,24,.74)");
     ctx.fillStyle = veil;
     ctx.fillRect(0, 0, w, h);
   }
-}
-
-let falconT = 0;
-function drawFalcon(ctx, w, h) {
-  falconT += 0.0016;
-  const x = ((falconT * 90) % (w + 120)) - 60;
-  const y = h * 0.14;
-  ctx.save();
-  ctx.translate(x, y);
-  ctx.fillStyle = "#d4af37";
-  ctx.beginPath();
-  ctx.moveTo(-22, 4);
-  ctx.lineTo(4, -1);
-  ctx.lineTo(12, -10);
-  ctx.lineTo(14, -1);
-  ctx.lineTo(28, 0);
-  ctx.lineTo(14, 3);
-  ctx.lineTo(10, 8);
-  ctx.lineTo(4, 2);
-  ctx.closePath();
-  ctx.fill();
-  ctx.restore();
 }
 
 function animate() {
@@ -83,7 +61,6 @@ function animate() {
   const ctx = canvas.getContext("2d");
   if (!skyCache || skyCache.width !== canvas.width) rebuildSkyCache();
   if (skyCache) ctx.drawImage(skyCache, 0, 0);
-  drawFalcon(ctx, canvas.width, canvas.height);
   requestAnimationFrame(animate);
 }
 
