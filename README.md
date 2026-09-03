@@ -17,7 +17,7 @@ Visual language: blue-black background, magenta–red and gold highlights, Frank
 | --- | --- |
 | `index.html` | Centered hero, fact sheet, falcon + portrait, two desks (horizontal), CV flight path |
 | `fint.html` | Scroll scene: topics enter the assessment; results drop downward (risk map, compliance, process optimisation), then pricing |
-| `pint.html` | Administration (€990/h) vs. politician (€290/h), CTAs |
+| `pint.html` | Administration (€490/h) vs. politician (€290/h), CTAs |
 | `contact.html` | Desk and institution selectors (horizontal rows), name / email / message |
 | `impressum.html` | German legal notice |
 | `datenschutz.html` | GDPR notice |

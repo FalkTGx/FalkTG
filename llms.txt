@@ -31,7 +31,7 @@ The public offer is two desks only:
 - FinT — Financial Institution Transformation (gold)
 - PinT — Public Institution Transformation (magenta)
 
-Do not add a third brand, desk, or product line. Do not merge FinT and PinT. Do not change public pricing (admin/state 990 EUR/h; politicians/factions 290 EUR/h; FinTech pricing remains owner-open). Do not invent new CTAs, markets, or positioning copy that contradicts README.md or existing pages.
+Do not add a third brand, desk, or product line. Do not merge FinT and PinT. Do not change public pricing (admin/state 490 EUR/h; politicians/factions 290 EUR/h; FinTech pricing remains owner-open). Do not invent new CTAs, markets, or positioning copy that contradicts README.md or existing pages.
 
 ### Scope
 Keep changes small. No drive-by refactors. Commits only when the user explicitly asked.
@@ -120,7 +120,7 @@ AI collected rules:
 ## Seitenstruktur (laut README)
 - `index.html` — Hero, Portrait, Desks, CV
 - `fint.html` — FinReg-Scroll-Szene: Inputs laufen in die Assessment; Ergebnisse (Risk map, Compliance, Process optimisation) werden nach unten ausgeworfen. Preiskarten.
-- `pint.html` — Admin vs. Politik, Stundensatz für Staat/Admin 990 EUR/h und für Politiker/Fraktionen 290 EUR die Stunde.
+- `pint.html` — Admin vs. Politik, Stundensatz für Staat/Admin 490 EUR/h und für Politiker/Fraktionen 290 EUR die Stunde.
 - `contact.html` — Desk-/Haus-Auswahl, Formular
 - `impressum.html` / `datenschutz.html` — Rechtliches (DE)
 
