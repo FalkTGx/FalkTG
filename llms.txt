@@ -7,7 +7,9 @@
 § 7 - If any § or $$ rule cant be obeyed for a second time, the AI gives in explaination in the chat, starting with: "Regelbruch, Eure Hoheit".
 § 8 - If AI changes the AI collected rules (never the $$ rules) it highlights its changes.
 § 9 - The AI gives always three short feedbacks, what should be changed next.
-
+§ 10 - Verzichte auf alles was wie AI Slop aussieht. 
+§ 11 - Die drei Zielgruppen sind 1 Finanzinstitute (Fin), der 2 Staat/die Verwaltung sowie 3 Politiker und Fraktionen (Pin).
+§ Ende
 --- NEW ADDITION: STRATEGY block added below. Coding AIs must not edit, move, dilute, or "improve" this section. ---
 
 ## STRATEGY
@@ -34,8 +36,27 @@ Do not add a third brand, desk, or product line. Do not merge FinT and PinT. Do 
 ### Scope
 Keep changes small. No drive-by refactors. Commits only when the user explicitly asked.
 
+### Anmerkungen durch den Menschen
+Fint: die Leistung besteht in einer Risikoanalyse die zugleich Prozessoptimierungen erarbeitet.
+Sie analysiert: Geschäftsmodell, ESG, Prozesse, Governance, Kultur, Kommunikation, Compliance, Interne Revision, Kapitalrisiken, Kreditrisiken, Marktrisiken, Operationelle Risiken und Liquiditätsrisiken.
+Als Output erzeugt sie: 
+- Risikokarte
+- Compliance
+- Prozessoptimierung
+
+Pint:
+Die Hauptleistung für Admin ist Prozessoptimierung.
+Die Hauptleistung für Politiker/Fraktionen ist Kommunikations und Social Media Beratung.
+
+Optik:
+Das sieht alles viel zu verspielt und viel zu wenig professionell aus. Bitte cleaner, trockener und weniger Hogwarts design.
+Falke doch nur symbolisch und abstrakt und nicht freundlich und rundlich.
+
 ### AI collected rules vs STRATEGY
 Other AIs may update the non-$$ "AI collected rules" for operational or website details. They must not use that section to override STRATEGY.
+
+
+### SRATEGY END
 
 AI collected rules:
 
@@ -53,7 +74,9 @@ AI collected rules:
 - Design professionell halten; Fehler und unschöne Stellen aktiv beheben.
 - Scope klein halten; keine unnötigen Refactors oder Over-Engineering.
 - Commits nur auf ausdrückliche Anfrage.
-- 
+- Git push: bei diverged `main` zuerst `git pull --rebase origin main`, dann push — kein force-push ohne Owner-OK.
+- Gap audit on request: compare live pages to `llms.txt` / README / STRATEGY; list owner blockers vs. fixable gaps.
+- FinT scene: assessment results drop downward (not a radial burst). Deliverables: Risk map, Compliance, Process optimisation.
 
 ## Farben & Design
 - Hintergrund: Blau-Schwarz (`#050a18` / navy).
@@ -62,10 +85,9 @@ AI collected rules:
 - Visuelle Sprache: FDP-Gold, Schwarz-Navy, Rot-Magenta, Frankfurt/Main.
 
 ## Logo & Assets
-- $$ Logo: realistischer, detaillierter Falke (`assets/logo-falcon.svg`). Das bisherige Logo komplett überarbeiten und durch einen relaistischen Falken!! ersetzen.
 - Nav-Logo über `js/media.js` → `mark` (`assets/falcon.jpg` — photorealistic peregrine).
-- Portrait / hero scene: `assets/hero.jpg` in `js/media.js` → `portrait` (hero + CV summit).
-- CV falcons: `assets/falcon.jpg` via `js/media.js` → `falcon`; size grows per station (s1–s7).
+- Portrait / hero scene: `assets/hero.jpg` in `js/media.js` → `portrait` (hero only).
+- CV falcons: inline SVGs as life stages (hatchling → adult in flight), not a scaled photo.
 
 ## Navigation
 - Home, FinT, PinT, Contact als sichtbare Inline-Links in der Top-Nav — nicht nur Hamburger-Menü.
@@ -74,20 +96,21 @@ AI collected rules:
 ## Startseite (`index.html`) — Layout-Reihenfolge
 1. Hero: zentriert (nicht linksbündig), Headline, Tagline, Lead.
 2. Fact Sheet (3 Kennzahlen).
-3. Direkt darunter: großer Falke + Falk im Anzug (Portrait-Frame).
+3. Direkt darunter: großer Falke + Falk im Anzug (Portrait-Frame) — nur hier, nicht noch einmal im CV.
 4. CTAs: Financial Institutions (gold) · Public Institutions (magenta).
 5. Zwei Desks horizontal nebeneinander: Gold/FinT · Magenta/PinT.
 6. CV / Flight path darunter.
 
 ## Startseite — CV / Flight path
-- Unten beginnen mit „Born“ (Frankfurt am Main): kleiner Falke schlüpft aus Ei.
-- Jede CV-Station: kurze Falke-Illustration, die pro Stufe stärker/größer wird.
-- Nach oben: Falke wird mächtiger; oben stärkster Falke + Falk im Anzug.
+- Unten beginnen mit „Born“ (Frankfurt am Main): Küken schlüpft aus Ei.
+- Jede CV-Station: eigene Falke-Zeichnung (Küken → Jungvogel → sitzender Adult → Flug), nicht dasselbe Foto gezoomt.
+- Nach oben: Falke wird mächtiger; oben stärkste Flug-Silhouette — kein zweites Portrait.
 - Chronologie: unten = Born → oben = jüngste Station (2026).
+- Owner-Fotos (`assets/hero.jpg`, `assets/falcon.jpg`) nicht ersetzen, solange Falk keine neuen Quellbilder liefert.
 
 ## Hintergrund
 - Skyline muss Frankfurt am Main sein (Messeturm, Main Tower, Commerzbank, Deutsche Bank, Dom, EZB, Main, Brücken) — kein generisches Stadtbild.
-- Canvas in `js/main.js` (`#skyline-canvas`).
+- Illustration: `assets/frankfurt-skyline.png`, gezeichnet auf `#skyline-canvas` (`js/main.js`).
 
 ## Contact (`contact.html`)
 - Erste Zeile horizontal: Financial Institution / Public Institution / Other.
@@ -96,7 +119,7 @@ AI collected rules:
 
 ## Seitenstruktur (laut README)
 - `index.html` — Hero, Portrait, Desks, CV
-- `fint.html` — FinReg-Scroll-Szene, Preiskarten
+- `fint.html` — FinReg-Scroll-Szene: Inputs laufen in die Assessment; Ergebnisse (Risk map, Compliance, Process optimisation) werden nach unten ausgeworfen. Preiskarten.
 - `pint.html` — Admin vs. Politik, Stundensatz für Staat/Admin 990 EUR/h und für Politiker/Fraktionen 290 EUR die Stunde.
 - `contact.html` — Desk-/Haus-Auswahl, Formular
 - `impressum.html` / `datenschutz.html` — Rechtliches (DE)
@@ -104,3 +127,7 @@ AI collected rules:
 ## Noch offen (Owner)
 - Ladungsfähige Anschrift für vollständiges Impressum.
 - FinTech-Preis bestätigen (monatlich vs. einmalig).
+- GitHub Pages einschalten.
+- Fehlendes `favicon.svg` ersetzen.
+- SEO meta / OG fehlen.
+- Google Fonts (Inter) vs. Datenschutz / self-host.

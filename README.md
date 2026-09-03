@@ -16,7 +16,7 @@ Visual language: blue-black background, magenta–red and gold highlights, Frank
 | File | Role |
 | --- | --- |
 | `index.html` | Centered hero, fact sheet, falcon + portrait, two desks (horizontal), CV flight path |
-| `fint.html` | Scroll scene *FinReg Assessment & Transformation*, pricing CTAs |
+| `fint.html` | Scroll scene: topics enter the assessment; results drop downward (risk map, compliance, process optimisation), then pricing |
 | `pint.html` | Administration (€990/h) vs. politician (€290/h), CTAs |
 | `contact.html` | Desk and institution selectors (horizontal rows), name / email / message |
 | `impressum.html` | German legal notice |
@@ -29,7 +29,7 @@ Visual language: blue-black background, magenta–red and gold highlights, Frank
 3. Large falcon + portrait frame (directly under facts)
 4. CTAs — Financial Institutions · Public Institutions
 5. Two desks — FinT (gold) · PinT (magenta), side by side
-6. CV flight path — summit (falcon + portrait) at top; Born with egg hatch at bottom; growing falcon icon per station
+6. CV flight path — Born with egg hatch at bottom; life-stage falcon drawings (not a zoomed photo); no second portrait
 
 ## Inquiry flow
 
@@ -50,10 +50,10 @@ The contact page pre-selects matching cards. Submit opens the visitor’s mail c
 Configured in `js/media.js`:
 
 - `mark` — nav falcon (`assets/falcon.jpg`)
-- `portrait` — hero / CV summit (`assets/hero.jpg`)
-- `falcon` — CV flight-path bird (`assets/falcon.jpg`), scaled larger each station
+- `portrait` — hero only (`assets/hero.jpg`)
+- `skyline` — Frankfurt illustration (`assets/frankfurt-skyline.png`) drawn on `#skyline-canvas`
 
-The canvas (`js/main.js`) draws a Frankfurt skyline (Messeturm, Main Tower, Commerzbank, Deutsche Bank, Dom, ECB, Main, bridges) and animates a falcon across the sky.
+CV flight-path birds are inline SVG life stages (chick → perched adult → flight), not a scaled copy of `falcon.jpg`. Owner photos are not replaced without new source files from Falk.
 
 ## Design tokens (`css/styles.css`)
 
@@ -75,7 +75,15 @@ Open `http://localhost:3000` (or the port shown).
 
 Pages is not enabled on this repository yet. When you switch it on, set the source to the `main` branch root.
 
-## Still needed from the owner
+## Still needed / gaps
 
-- Ladungsfähige Anschrift for a complete Impressum
-- Confirmation of FinTech pricing (monthly retainer vs one-off)
+**Owner decisions**
+- Ladungsfähige Anschrift for a complete Impressum (and Datenschutz controller address)
+- Confirmation of FinTech pricing (monthly retainer vs one-off; card already shows €300/month)
+
+**Site / ops**
+- Enable GitHub Pages (`main` branch root) — not live yet
+- `assets/favicon.svg` is linked on every page but the file is missing
+- `$$` logo: `assets/logo-falcon.svg` is still a stylized gold SVG, not a realistic falcon (nav already uses `falcon.jpg`)
+- SEO: no `meta description` / Open Graph tags yet
+- Datenschutz: Google Fonts (Inter) loads from Google — worth noting or self-hosting

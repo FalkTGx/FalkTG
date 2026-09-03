@@ -11,129 +11,48 @@ function applyMedia() {
   });
 }
 
-function drawSkyline() {
+let skylineImg = null;
+let skylineReady = false;
+let skyCache = null;
+
+function loadSkyline() {
+  const src = (window.FALK_MEDIA && window.FALK_MEDIA.skyline) || "assets/frankfurt-skyline.png";
+  skylineImg = new Image();
+  skylineImg.onload = () => {
+    skylineReady = true;
+    rebuildSkyCache();
+  };
+  skylineImg.src = src;
+}
+
+function rebuildSkyCache() {
   const canvas = document.getElementById("skyline-canvas");
   if (!canvas) return;
-  const ctx = canvas.getContext("2d");
   const w = canvas.width = innerWidth;
   const h = canvas.height = innerHeight;
-  const bank = h * 0.58;
-  const water = h * 0.70;
-
-  const sky = ctx.createLinearGradient(0, 0, 0, h);
-  sky.addColorStop(0, "#030814");
-  sky.addColorStop(0.3, "#08122a");
-  sky.addColorStop(0.6, "#0c1830");
-  sky.addColorStop(1, "#081220");
-  ctx.fillStyle = sky;
+  skyCache = document.createElement("canvas");
+  skyCache.width = w;
+  skyCache.height = h;
+  const ctx = skyCache.getContext("2d");
+  ctx.fillStyle = "#050a18";
   ctx.fillRect(0, 0, w, h);
-
-  ctx.fillStyle = "rgba(255,255,255,.25)";
-  for (let i = 0; i < 50; i++) {
-    ctx.fillRect((i * 137.5 + 23) % w, (i * 89.3 + 7) % (h * 0.3), 1, 1);
+  if (skylineReady && skylineImg) {
+    const iw = skylineImg.naturalWidth;
+    const ih = skylineImg.naturalHeight;
+    const scale = Math.max(w / iw, h / ih);
+    const dw = iw * scale;
+    const dh = ih * scale;
+    const dx = (w - dw) / 2;
+    const dy = h - dh;
+    ctx.drawImage(skylineImg, dx, dy, dw, dh);
+    const veil = ctx.createLinearGradient(0, 0, 0, h);
+    veil.addColorStop(0, "rgba(5,10,24,.78)");
+    veil.addColorStop(0.38, "rgba(5,10,24,.42)");
+    veil.addColorStop(0.72, "rgba(5,10,24,.18)");
+    veil.addColorStop(1, "rgba(5,10,24,.5)");
+    ctx.fillStyle = veil;
+    ctx.fillRect(0, 0, w, h);
   }
-
-  const towers = [
-    { x: 0.02, w: 0.028, h: 0.12, cap: "block" },
-    { x: 0.06, w: 0.032, h: 0.18, cap: "block" },
-    { x: 0.10, w: 0.026, h: 0.14, cap: "block" },
-    { x: 0.14, w: 0.048, h: 0.33, cap: "wedge", label: "Messeturm" },
-    { x: 0.20, w: 0.030, h: 0.16, cap: "block" },
-    { x: 0.24, w: 0.036, h: 0.22, cap: "block" },
-    { x: 0.29, w: 0.030, h: 0.18, cap: "block" },
-    { x: 0.33, w: 0.028, h: 0.15, cap: "block" },
-    { x: 0.37, w: 0.046, h: 0.44, cap: "antenna", label: "MainTower" },
-    { x: 0.43, w: 0.044, h: 0.42, cap: "pyramid", label: "Commerzbank" },
-    { x: 0.49, w: 0.030, h: 0.26, cap: "block" },
-    { x: 0.53, w: 0.042, h: 0.34, cap: "twin" },
-    { x: 0.58, w: 0.042, h: 0.34, cap: "twin" },
-    { x: 0.64, w: 0.026, h: 0.20, cap: "block" },
-    { x: 0.68, w: 0.032, h: 0.17, cap: "spire", label: "Dom" },
-    { x: 0.73, w: 0.028, h: 0.14, cap: "block" },
-    { x: 0.77, w: 0.060, h: 0.26, cap: "ecb", label: "EZB" },
-    { x: 0.84, w: 0.030, h: 0.18, cap: "block" },
-    { x: 0.88, w: 0.036, h: 0.14, cap: "block" },
-    { x: 0.93, w: 0.028, h: 0.12, cap: "block" },
-    { x: 0.97, w: 0.026, h: 0.10, cap: "block" }
-  ];
-
-  towers.forEach((t, i) => {
-    const x = t.x * w, bw = t.w * w, bh = t.h * h, y = bank - bh;
-    const g = ctx.createLinearGradient(x, y, x + bw, y + bh);
-    g.addColorStop(0, i % 2 ? "#162040" : "#1e2e54");
-    g.addColorStop(1, i % 2 ? "#0e1628" : "#141e38");
-    ctx.fillStyle = g;
-    ctx.fillRect(x, y, bw, bh);
-
-    if (t.cap === "wedge" || t.cap === "pyramid") {
-      ctx.fillStyle = "#1e3058";
-      const tip = bh * (t.cap === "pyramid" ? 0.22 : 0.15);
-      ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + bw / 2, y - tip); ctx.lineTo(x + bw, y); ctx.fill();
-    }
-    if (t.cap === "antenna") {
-      ctx.fillStyle = "#1e3058";
-      ctx.fillRect(x + bw * 0.46, y - 28, 2.5, 28);
-      const blink = 0.4 + Math.sin(Date.now() / 700) * 0.6;
-      ctx.fillStyle = `rgba(196,30,58,${blink})`;
-      ctx.beginPath(); ctx.arc(x + bw * 0.47, y - 30, 2.5, 0, Math.PI * 2); ctx.fill();
-    }
-    if (t.cap === "twin") {
-      ctx.fillStyle = "#1e3058";
-      ctx.fillRect(x + bw * 0.1, y - 14, bw * 0.8, 14);
-    }
-    if (t.cap === "spire") {
-      ctx.fillStyle = "#5a3018";
-      ctx.beginPath(); ctx.moveTo(x + bw * 0.3, y); ctx.lineTo(x + bw * 0.5, y - bh * 0.4); ctx.lineTo(x + bw * 0.7, y); ctx.fill();
-      ctx.fillStyle = "#d4af37";
-      ctx.beginPath(); ctx.arc(x + bw * 0.5, y - bh * 0.43, 1.5, 0, Math.PI * 2); ctx.fill();
-    }
-    if (t.cap === "ecb") {
-      ctx.fillStyle = "#1e3058";
-      ctx.beginPath(); ctx.moveTo(x, y + bh * 0.1); ctx.lineTo(x + bw * 0.5, y - bh * 0.05); ctx.lineTo(x + bw, y + bh * 0.1); ctx.lineTo(x + bw, y + bh); ctx.lineTo(x, y + bh); ctx.closePath(); ctx.fill();
-      ctx.fillStyle = "#d4af37";
-      ctx.fillRect(x + bw * 0.46, y - bh * 0.08, bw * 0.08, bh * 0.06);
-    }
-    if (t.label === "Commerzbank") {
-      ctx.strokeStyle = "rgba(212,175,55,.18)"; ctx.lineWidth = 1;
-      ctx.strokeRect(x + 1, y + 1, bw - 2, bh - 2);
-    }
-
-    const ww = Math.max(1.5, bw * 0.08);
-    for (let yy = y + 6; yy < bank - 6; yy += 9) {
-      for (let xx = x + 3; xx < x + bw - 3; xx += ww + 3) {
-        if ((xx + yy + i) % 6 !== 0) {
-          ctx.fillStyle = ((xx + yy) % 9 === 0) ? "rgba(212,175,55,.3)" : "rgba(200,215,255,.12)";
-          ctx.fillRect(xx, yy, ww, 3);
-        }
-      }
-    }
-  });
-
-  ctx.fillStyle = "#0a1424";
-  ctx.fillRect(0, bank, w, water - bank);
-  ctx.fillStyle = "#152240";
-  ctx.fillRect(0, bank, w, 3);
-
-  ctx.strokeStyle = "rgba(212,175,55,.12)"; ctx.lineWidth = 1.5;
-  for (let b = 0; b < 4; b++) {
-    const bx = w * (0.18 + b * 0.2);
-    ctx.beginPath();
-    ctx.moveTo(bx - w * 0.05, water - 3);
-    ctx.quadraticCurveTo(bx, water - 18, bx + w * 0.05, water - 3);
-    ctx.stroke();
-  }
-
-  const river = ctx.createLinearGradient(0, water, 0, h);
-  river.addColorStop(0, "#0e1e38"); river.addColorStop(0.3, "#152848"); river.addColorStop(1, "#081428");
-  ctx.fillStyle = river;
-  ctx.fillRect(0, water, w, h - water);
-
-  ctx.globalAlpha = 0.12;
-  towers.forEach((t, i) => {
-    ctx.fillStyle = i % 3 === 0 ? "#d4af37" : "#4a6a9a";
-    ctx.fillRect(t.x * w, water + 4, t.w * w, t.h * h * 0.22);
-  });
-  ctx.globalAlpha = 1;
 }
 
 let falconT = 0;
@@ -155,10 +74,12 @@ function drawFalcon(ctx, w, h) {
 }
 
 function animate() {
-  drawSkyline();
   const canvas = document.getElementById("skyline-canvas");
   if (!canvas) return;
-  drawFalcon(canvas.getContext("2d"), canvas.width, canvas.height);
+  const ctx = canvas.getContext("2d");
+  if (!skyCache || skyCache.width !== canvas.width) rebuildSkyCache();
+  if (skyCache) ctx.drawImage(skyCache, 0, 0);
+  drawFalcon(ctx, canvas.width, canvas.height);
   requestAnimationFrame(animate);
 }
 
@@ -220,10 +141,12 @@ function fintScene() {
     });
     hole.style.transform = `translate(-50%,-50%) scale(${0.78 + Math.min(p, 0.75) * 0.45 + Math.sin(p * 18) * 0.03})`;
     outbound.forEach((el, i) => {
-      const q = Math.max(0, (p - 0.6) / 0.4);
-      const burst = 1 - Math.pow(1 - q, 2);
-      el.style.opacity = String(burst);
-      place(el, (i / outbound.length) * Math.PI * 2 - 0.35, 40 + burst * 230, `scale(${0.7 + burst * 0.4})`);
+      const q = Math.max(0, (p - 0.58) / 0.42);
+      const fall = q * q;
+      const n = outbound.length;
+      const spread = (i - (n - 1) / 2) * Math.min(innerWidth * 0.22, 180);
+      el.style.opacity = String(Math.min(1, q * 2.2));
+      el.style.transform = `translate(-50%,-50%) translate(${spread * Math.min(1, q * 1.6)}px, ${28 + fall * 210}px)`;
     });
   };
   addEventListener("scroll", tick, { passive: true }); tick();
@@ -231,7 +154,8 @@ function fintScene() {
 
 document.addEventListener("DOMContentLoaded", () => {
   applyMedia();
-  addEventListener("resize", drawSkyline);
+  loadSkyline();
+  addEventListener("resize", rebuildSkyCache);
   requestAnimationFrame(animate);
   nav(); formLogic(); fintScene();
 });
