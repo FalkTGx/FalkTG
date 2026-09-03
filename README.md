@@ -7,7 +7,7 @@ Positioning: institutional transformation on two desks.
 - **FinT** — Financial Institution Transformation (yellow–gold)
 - **PinT** — Public Institution Transformation (magenta–red)
 
-Visual language: blue-black background, magenta–red and gold highlights, Frankfurt skyline with the Main.
+Visual language: blue-black background, magenta–red and gold highlights, Frankfurt skyline with the Main. Treatment is institutional: solid fills, tight type, little glow.
 
 **AI / contributor rules:** see [`llms.txt`](llms.txt).
 
@@ -24,7 +24,7 @@ Visual language: blue-black background, magenta–red and gold highlights, Frank
 
 ## Homepage layout (top → bottom)
 
-1. Hero — headline, tagline, lead (centered)
+1. Hero — headline, lead (centered)
 2. Fact sheet — three proof points
 3. Large falcon + portrait frame (directly under facts)
 4. CTAs — Financial Institutions · Public Institutions
@@ -62,6 +62,7 @@ CV flight-path birds are inline SVG life stages (chick → perched adult → fli
 | `--bg` `#050a18` | Blue-black background |
 | `--mag` / `--mag-2` | Magenta–red (PinT) |
 | `--gold` / `--gold-2` | Yellow–gold (FinT) |
+| `--radius` `.3rem` | Tight corners; buttons use solid gold / magenta, not gradients |
 
 ## Local preview
 

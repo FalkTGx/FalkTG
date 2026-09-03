@@ -83,6 +83,13 @@ AI collected rules:
 - Highlight 1: Magenta → Rot (PinT / Public Institutions).
 - Highlight 2: Gelb → Gold (FinT / Financial Institutions).
 - Visuelle Sprache: FDP-Gold, Schwarz-Navy, Rot-Magenta, Frankfurt/Main.
+- **[NEW]** Public look: calmer, institutional. Solid gold / magenta fills. Reduce glows, heavy gradients, playful spacing. Not theatrical.
+
+## Copy
+- **[NEW]** No new marketing voice. Do not invent replacement positioning copy. Do not add adjectives.
+- **[NEW]** Delete only unambiguously sloppy slogan lines (e.g. “magenta pace”, “not in the waiting room”, “gold discipline” as slogans).
+- **[NEW]** Public pages stay English. Do not translate the site into German. Legal pages remain DE.
+- **[NEW]** Feature-branch PRs only. Never push to `main`.
 
 ## Logo & Assets
 - Nav-Logo über `js/media.js` → `mark` (`assets/falcon.jpg` — photorealistic peregrine).
@@ -94,7 +101,7 @@ AI collected rules:
 - Einheitliche Nav auf allen Seiten (`nav-bar`).
 
 ## Startseite (`index.html`) — Layout-Reihenfolge
-1. Hero: zentriert (nicht linksbündig), Headline, Tagline, Lead.
+1. Hero: zentriert (nicht linksbündig), Headline, Lead.
 2. Fact Sheet (3 Kennzahlen).
 3. Direkt darunter: großer Falke + Falk im Anzug (Portrait-Frame) — nur hier, nicht noch einmal im CV.
 4. CTAs: Financial Institutions (gold) · Public Institutions (magenta).
