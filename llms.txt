@@ -90,6 +90,8 @@ AI collected rules:
 - **[NEW]** Delete only unambiguously sloppy slogan lines (e.g. “magenta pace”, “not in the waiting room”, “gold discipline” as slogans).
 - **[NEW]** Public pages stay English. Do not translate the site into German. Legal pages remain DE.
 - **[NEW]** Feature-branch PRs only. Never push to `main`.
+- **[NEW]** Inter is self-hosted (`fonts/inter-{400,600,700}.woff2`). Do not add `fonts.googleapis.com` or `fonts.gstatic.com`. Keep only CSS-referenced weights.
+- **[NEW]** Home fact chip is factual `&lt;30` — not “Gen Z operator”.
 
 ## Logo & Assets
 - Nav-Logo über `js/media.js` → `mark` (`assets/falcon.jpg` — photorealistic peregrine).
@@ -137,4 +139,3 @@ AI collected rules:
 - GitHub Pages einschalten.
 - Fehlendes `favicon.svg` ersetzen.
 - SEO meta / OG fehlen.
-- Google Fonts (Inter) vs. Datenschutz / self-host.
