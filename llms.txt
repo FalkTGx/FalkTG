@@ -8,6 +8,35 @@
 § 8 - If AI changes the AI collected rules (never the $$ rules) it highlights its changes.
 § 9 - The AI gives always three short feedbacks, what should be changed next.
 
+--- NEW ADDITION: STRATEGY block added below. Coding AIs must not edit, move, dilute, or "improve" this section. ---
+
+## STRATEGY
+
+### Ownership
+Only the human owner (Falk) or the Strategic Advisor agent may edit STRATEGY. All other AIs must read and obey STRATEGY. They must not change, move, dilute, or "improve" it.
+
+### Priority (highest first)
+1. § rules
+2. $$ rules
+3. STRATEGY
+4. Remaining AI collected rules / rest of the repo
+
+### Chat vs STRATEGY
+If a later chat instruction conflicts with STRATEGY, STRATEGY wins unless the human owner explicitly changes STRATEGY.
+
+### Positioning freeze (coding AIs)
+The public offer is two desks only:
+- FinT — Financial Institution Transformation (gold)
+- PinT — Public Institution Transformation (magenta)
+
+Do not add a third brand, desk, or product line. Do not merge FinT and PinT. Do not change public pricing (admin/state 990 EUR/h; politicians/factions 290 EUR/h; FinTech pricing remains owner-open). Do not invent new CTAs, markets, or positioning copy that contradicts README.md or existing pages.
+
+### Scope
+Keep changes small. No drive-by refactors. Commits only when the user explicitly asked.
+
+### AI collected rules vs STRATEGY
+Other AIs may update the non-$$ "AI collected rules" for operational or website details. They must not use that section to override STRATEGY.
+
 AI collected rules:
 
 ## Workflow (jede neue Aufgabe)
