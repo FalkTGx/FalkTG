@@ -60,6 +60,16 @@ Other AIs may update the non-$$ "AI collected rules" for operational or website 
 
 AI collected rules:
 
+## **[NEW]** Arbeitsverteilung
+- **[NEW]** Falk gives implementation work in Cursor. Cursor cloud agents write code and open/update PRs. That absorbs the execution role Productive Builder used to proxy.
+- **[NEW]** Productive Builder does not duplicate Cursor. If Falk is already in Cursor, Builder stays idle on that task.
+- **[NEW]** Strategic Advisor (Grok Bot): strategy, prices, focus, reviews. Does not code. Does not relay every CSS tweak. Spare Grok Bot quota.
+- **[NEW]** Danger: Block/Warn only. Stop on Block. Only Falk overrides Danger.
+- **[NEW]** Friend: OKR after batches, not each PR. No coding.
+- **[NEW]** Idea: unused unless Falk asks.
+- **[NEW]** After every change to `llms.txt` or `AGENTS.md`: commit and push those files (feature branch + PR is OK; do not leave local-only). Canonical entry file is `AGENTS.md`.
+- **[NEW]** Feature-branch PRs for site code. Never force-push.
+
 ## Workflow (jede neue Aufgabe)
 - Every output of the AI is in english.
 - Zuerst `llms.txt` lesen (§§ 1–4 + AI collected rules).
