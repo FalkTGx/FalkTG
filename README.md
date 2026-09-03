@@ -55,6 +55,10 @@ Configured in `js/media.js`:
 
 CV flight-path birds are inline SVG life stages (chick → perched adult → flight), not a scaled copy of `falcon.jpg`. Owner photos are not replaced without new source files from Falk.
 
+## Fonts
+
+Inter is self-hosted as latin woff2 in `fonts/` (weights 400, 600, 700 — the weights `css/styles.css` actually sets). Pages load it only via local `@font-face`. There is no Google Fonts request.
+
 ## Design tokens (`css/styles.css`)
 
 | Token | Use |
@@ -87,4 +91,3 @@ Pages is not enabled on this repository yet. When you switch it on, set the sour
 - `assets/favicon.svg` is linked on every page but the file is missing
 - `$$` logo: `assets/logo-falcon.svg` is still a stylized gold SVG, not a realistic falcon (nav already uses `falcon.jpg`)
 - SEO: no `meta description` / Open Graph tags yet
-- Datenschutz: Google Fonts (Inter) loads from Google — worth noting or self-hosting
