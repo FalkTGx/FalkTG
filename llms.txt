@@ -53,6 +53,7 @@ AI collected rules:
 - Design professionell halten; Fehler und unschöne Stellen aktiv beheben.
 - Scope klein halten; keine unnötigen Refactors oder Over-Engineering.
 - Commits nur auf ausdrückliche Anfrage.
+- 
 
 ## Farben & Design
 - Hintergrund: Blau-Schwarz (`#050a18` / navy).
