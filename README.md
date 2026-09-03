@@ -9,7 +9,7 @@ Positioning: institutional transformation on two desks.
 
 Visual language: blue-black background, magenta–red and gold highlights, Frankfurt skyline with the Main. Treatment is institutional: solid fills, tight type, little glow. CV falcons are angular symbolic SVG marks, not round drawings.
 
-**AI / contributor rules:** see [`llms.txt`](llms.txt).
+**AI / contributor rules:** start at [`AGENTS.md`](AGENTS.md); full rules in [`llms.txt`](llms.txt). After every update to those two files, commit and push on a feature-branch PR.
 
 ## Pages
 
