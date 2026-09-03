@@ -73,8 +73,9 @@ AI collected rules:
 - Bugs finden und beheben.
 - Design professionell halten; Fehler und unschöne Stellen aktiv beheben.
 - Scope klein halten; keine unnötigen Refactors oder Over-Engineering.
-- Commits nur auf ausdrückliche Anfrage.
+- Commits nur auf ausdrückliche Anfrage — Ausnahme unten für `llms.txt` / `AGENTS.md`.
 - Git push: bei diverged `main` zuerst `git pull --rebase origin main`, dann push — kein force-push ohne Owner-OK.
+- **[NEW]** After every update to `llms.txt` or `AGENTS.md`, commit and `git push` on a feature branch and open/update the PR. Never leave those two files as local-only changes. Canonical agent entry file is `AGENTS.md` (not `Agents.md`).
 - Gap audit on request: compare live pages to `llms.txt` / README / STRATEGY; list owner blockers vs. fixable gaps.
 - FinT scene: assessment results drop downward (not a radial burst). Deliverables: Risk map, Compliance, Process optimisation.
 
