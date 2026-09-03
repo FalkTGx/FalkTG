@@ -57,19 +57,23 @@ function rebuildSkyCache() {
 
 let falconT = 0;
 function drawFalcon(ctx, w, h) {
-  falconT += 0.003;
-  const x = ((falconT * 140) % (w + 200)) - 100;
-  const y = h * 0.16 + Math.sin(falconT * 2.5) * 25;
-  ctx.save(); ctx.translate(x, y); ctx.rotate(Math.sin(falconT * 4.5) * 0.1);
+  falconT += 0.0016;
+  const x = ((falconT * 90) % (w + 120)) - 60;
+  const y = h * 0.14;
+  ctx.save();
+  ctx.translate(x, y);
   ctx.fillStyle = "#d4af37";
-  ctx.beginPath(); ctx.moveTo(16, 0);
-  ctx.quadraticCurveTo(-3, -16 - Math.sin(falconT * 8) * 6, -20, 2);
-  ctx.quadraticCurveTo(-3, 14 + Math.sin(falconT * 8) * 6, 16, 0);
+  ctx.beginPath();
+  ctx.moveTo(-22, 4);
+  ctx.lineTo(4, -1);
+  ctx.lineTo(12, -10);
+  ctx.lineTo(14, -1);
+  ctx.lineTo(28, 0);
+  ctx.lineTo(14, 3);
+  ctx.lineTo(10, 8);
+  ctx.lineTo(4, 2);
+  ctx.closePath();
   ctx.fill();
-  ctx.fillStyle = "#f0d78c";
-  ctx.beginPath(); ctx.moveTo(18, 0); ctx.lineTo(26, -2.5); ctx.lineTo(18, 2.5); ctx.fill();
-  ctx.fillStyle = "#1a1408";
-  ctx.beginPath(); ctx.arc(14, -1.5, 1.2, 0, Math.PI * 2); ctx.fill();
   ctx.restore();
 }
 
@@ -139,7 +143,7 @@ function fintScene() {
       el.style.opacity = String(p < 0.58 ? 1 : Math.max(0, 1 - (p - 0.58) * 10));
       place(el, a, Math.max(0, dist), `rotate(${swirl * 24}deg)`);
     });
-    hole.style.transform = `translate(-50%,-50%) scale(${0.78 + Math.min(p, 0.75) * 0.45 + Math.sin(p * 18) * 0.03})`;
+    hole.style.transform = `translate(-50%,-50%) scale(${0.86 + Math.min(p, 0.75) * 0.28})`;
     outbound.forEach((el, i) => {
       const q = Math.max(0, (p - 0.58) / 0.42);
       const fall = q * q;

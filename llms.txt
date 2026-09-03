@@ -84,6 +84,7 @@ AI collected rules:
 - Highlight 2: Gelb → Gold (FinT / Financial Institutions).
 - Visuelle Sprache: FDP-Gold, Schwarz-Navy, Rot-Magenta, Frankfurt/Main.
 - **[NEW]** Public look: calmer, institutional. Solid gold / magenta fills. Reduce glows, heavy gradients, playful spacing. Not theatrical.
+- **[NEW]** Flight-path egg/CV: static, dry marks. No shake, crack, or hatch animation. No storybook subtitle.
 
 ## Copy
 - **[NEW]** No new marketing voice. Do not invent replacement positioning copy. Do not add adjectives.
@@ -96,7 +97,8 @@ AI collected rules:
 ## Logo & Assets
 - Nav-Logo über `js/media.js` → `mark` (`assets/falcon.jpg` — photorealistic peregrine).
 - Portrait / hero scene: `assets/hero.jpg` in `js/media.js` → `portrait` (hero only).
-- CV falcons: inline SVGs as life stages (hatchling → adult in flight), not a scaled photo.
+- CV falcons: inline angular / symbolic SVGs as life stages (hatchling → adult in flight), not a scaled photo, not round or friendly.
+- **[NEW]** Do not generate or add photos. Do not replace `assets/falcon.jpg` or `assets/hero.jpg`. Do not create new image files. No paid fonts or tools.
 
 ## Navigation
 - Home, FinT, PinT, Contact als sichtbare Inline-Links in der Top-Nav — nicht nur Hamburger-Menü.
@@ -111,8 +113,8 @@ AI collected rules:
 6. CV / Flight path darunter.
 
 ## Startseite — CV / Flight path
-- Unten beginnen mit „Born“ (Frankfurt am Main): Küken schlüpft aus Ei.
-- Jede CV-Station: eigene Falke-Zeichnung (Küken → Jungvogel → sitzender Adult → Flug), nicht dasselbe Foto gezoomt.
+- Unten beginnen mit „Born“ (Frankfurt am Main): static abstract egg + hatchling mark (facts stay; no hatch theater).
+- Jede CV-Station: eigene eckige Falke-Zeichnung (Küken → Jungvogel → sitzender Adult → Flug), nicht dasselbe Foto gezoomt.
 - Nach oben: Falke wird mächtiger; oben stärkste Flug-Silhouette — kein zweites Portrait.
 - Chronologie: unten = Born → oben = jüngste Station (2026).
 - Owner-Fotos (`assets/hero.jpg`, `assets/falcon.jpg`) nicht ersetzen, solange Falk keine neuen Quellbilder liefert.

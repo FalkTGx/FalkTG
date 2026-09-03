@@ -7,7 +7,7 @@ Positioning: institutional transformation on two desks.
 - **FinT** — Financial Institution Transformation (yellow–gold)
 - **PinT** — Public Institution Transformation (magenta–red)
 
-Visual language: blue-black background, magenta–red and gold highlights, Frankfurt skyline with the Main. Treatment is institutional: solid fills, tight type, little glow.
+Visual language: blue-black background, magenta–red and gold highlights, Frankfurt skyline with the Main. Treatment is institutional: solid fills, tight type, little glow. CV falcons are angular symbolic SVG marks, not round drawings.
 
 **AI / contributor rules:** see [`llms.txt`](llms.txt).
 
@@ -29,7 +29,7 @@ Visual language: blue-black background, magenta–red and gold highlights, Frank
 3. Large falcon + portrait frame (directly under facts)
 4. CTAs — Financial Institutions · Public Institutions
 5. Two desks — FinT (gold) · PinT (magenta), side by side
-6. CV flight path — Born with egg hatch at bottom; life-stage falcon drawings (not a zoomed photo); no second portrait
+6. CV flight path — Born with a static abstract egg mark at the bottom; angular life-stage falcon marks (not a zoomed photo); no second portrait; no hatch animation
 
 ## Inquiry flow
 
@@ -53,7 +53,7 @@ Configured in `js/media.js`:
 - `portrait` — hero only (`assets/hero.jpg`)
 - `skyline` — Frankfurt illustration (`assets/frankfurt-skyline.png`) drawn on `#skyline-canvas`
 
-CV flight-path birds are inline SVG life stages (chick → perched adult → flight), not a scaled copy of `falcon.jpg`. Owner photos are not replaced without new source files from Falk.
+CV flight-path birds are inline angular SVG life stages (chick → perched adult → flight), not a scaled copy of `falcon.jpg`. Owner photos are not replaced without new source files from Falk. No new image files.
 
 ## Fonts
 
