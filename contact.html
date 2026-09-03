@@ -3,34 +3,35 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | FalkTG</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <canvas id="skyline-canvas"></canvas><div class="wind-layer"></div>
+  <canvas id="skyline-canvas"></canvas>
   <div class="wrap">
     <header class="nav"><div class="nav-inner">
       <a class="brand" href="index.html"><img data-media="mark" alt="FalkTG"><b>FalkTG</b></a>
       <button class="nav-toggle" aria-label="Menu">☰</button>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="fint.html">Financial Institutions</a></li>
-        <li><a href="pint.html">Public Institutions</a></li>
-        <li><a class="active" href="contact.html">Contact</a></li>
-      </ul>
+      <nav class="nav-bar">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="fint.html">Financial Institutions</a>
+        <a class="nav-link" href="pint.html">Public Institutions</a>
+        <a class="nav-link active" href="contact.html">Contact</a>
+      </nav>
     </div></header>
-    <section class="section" style="padding-top:7.4rem">
+    <section class="section" style="padding-top:5rem">
       <div class="section-head"><p class="kicker">Contact</p><h2>Start a mandate</h2><p class="muted">Choose the desk first. Then the house.</p></div>
       <form class="form" id="contact-form">
         <input type="hidden" name="type" value="">
         <input type="hidden" name="fin_kind" value="">
         <input type="hidden" name="pub_kind" value="">
-        <div class="choice-row three">
+        <div class="choice-row">
           <button type="button" class="choice" data-choice="type" data-value="financial">Financial Institution<small>Banks, firms, fintechs</small></button>
           <button type="button" class="choice" data-choice="type" data-value="public">Public Institution<small>Admin and politics</small></button>
           <button type="button" class="choice" data-choice="type" data-value="other">Other<small>Press, speaking, else</small></button>
         </div>
-        <div id="fin-row" class="choice-row three hidden">
+        <div id="fin-row" class="choice-row hidden">
           <button type="button" class="choice" data-choice="fin_kind" data-value="bank">Bank</button>
           <button type="button" class="choice" data-choice="fin_kind" data-value="ifpf">Investment / payment firm</button>
           <button type="button" class="choice" data-choice="fin_kind" data-value="fintech">FinTech — Start-up</button>
@@ -38,6 +39,7 @@
         <div id="pub-row" class="choice-row hidden">
           <button type="button" class="choice" data-choice="pub_kind" data-value="admin">Administration</button>
           <button type="button" class="choice" data-choice="pub_kind" data-value="politician">Parliamentary group / politician</button>
+          <button type="button" class="choice" data-choice="pub_kind" data-value="other_pub">Other public</button>
         </div>
         <label>Name <input name="name" required></label>
         <label>Email <input type="email" name="email" required></label>
@@ -48,5 +50,5 @@
     </section>
     <footer class="footer"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></footer>
   </div>
-  <script src="js/media-hero.js"></script><script src="js/media-mark.js"></script><script src="js/main.js"></script>
+  <script src="js/media.js"></script><script src="js/main.js"></script>
 </body></html>

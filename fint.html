@@ -3,21 +3,22 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Financial Institutions | FalkTG</title>
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <canvas id="skyline-canvas"></canvas><div class="wind-layer"></div>
+  <canvas id="skyline-canvas"></canvas>
   <div class="wrap">
     <header class="nav"><div class="nav-inner">
       <a class="brand" href="index.html"><img data-media="mark" alt="FalkTG"><b>FalkTG</b></a>
       <button class="nav-toggle" aria-label="Menu">☰</button>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a class="active" href="fint.html">Financial Institutions</a></li>
-        <li><a href="pint.html">Public Institutions</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <nav class="nav-bar">
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link active" href="fint.html">Financial Institutions</a>
+        <a class="nav-link" href="pint.html">Public Institutions</a>
+        <a class="nav-link" href="contact.html">Contact</a>
+      </nav>
     </div></header>
     <div class="fint-track"><div class="fint-sticky"><div class="scene">
       <h1 class="scene-title">FinReg Assessment &amp; Transformation</h1>
@@ -32,9 +33,9 @@
         <a class="card fint" href="contact.html?desk=fint&kind=ifpf"><h3>IF / PF</h3><strong>€1,900</strong><p class="muted">Investment or payment firm</p><p class="muted">then €600 / month</p></a>
         <a class="card fint" href="contact.html?desk=fint&kind=fintech"><h3>FinTech — Start-up</h3><strong>€300</strong><p class="muted">per month</p></a>
       </div>
-      <p class="note" style="margin-top:1.4rem"><a class="btn btn-red" href="contact.html?desk=fint">Write without choosing a tier</a></p>
+      <p class="note" style="margin-top:1.4rem"><a class="btn btn-gold" href="contact.html?desk=fint">Write without choosing a tier</a></p>
     </section>
     <footer class="footer"><a href="impressum.html">Impressum</a> · <a href="datenschutz.html">Datenschutz</a></footer>
   </div>
-  <script src="js/media-hero.js"></script><script src="js/media-mark.js"></script><script src="js/main.js"></script>
+  <script src="js/media.js"></script><script src="js/main.js"></script>
 </body></html>

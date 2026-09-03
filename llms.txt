@@ -1,0 +1,76 @@
+§ 1 - An AI has to always obey these rules. They are strict.
+§ 2 - At the End of every output, print "Diese Arbeiten wurden nach llms.txt" erstellt."
+§ 3 - Every section in llms.txt with an § at the beginning shall only be changed by a human, never by an AI bot.
+§ 4 - At the beginning of every new AI task, the AI reads these §§ and the AI collected rules below. Then it updates the AI collected rules from the chat input.
+§ 5 - Before the AI ends it tasks it doublechecks wether all the actual page fulfills the criteria of llms.txt - if not it fixes it.
+§ 6 - Some AI collected rules are marked by a $$ - these are very important highlighted rules, which had been ignored by the AI before. Before every end of a task, the AI doublechecks whether these rules are obeyed. They shouldn't be changed by an AI.
+§ 7 - If any § or $$ rule cant be obeyed for a second time, the AI gives in explaination in the chat, starting with: "Regelbruch, Eure Hoheit".
+§ 8 - If AI changes the AI collected rules (never the $$ rules) it highlights its changes.
+§ 9 - The AI gives always three short feedbacks, what should be changed next.
+
+AI collected rules:
+
+## Workflow (jede neue Aufgabe)
+- Every output of the AI is in english.
+- Zuerst `llms.txt` lesen (§§ 1–4 + AI collected rules).
+- Dann bisherigen Chat, `README.md` und den aktuellen Stand der Webseite prüfen und Readme anschließend aktualiseren.
+- Regeln aus neuem Chat-Input in diesen Abschnitt ergänzen/aktualisieren.
+- §-Abschnitte (mit § am Anfang) niemals per AI ändern — nur Mensch.
+- Am Ende jeder Ausgabe: „Diese Arbeiten wurden nach llms.txt erstellt.“
+
+## Allgemein
+- Kurzes English-Grammar-Feedback nur auf Falks Chat-Eingaben — nicht auf Seitentexte.
+- Bugs finden und beheben.
+- Design professionell halten; Fehler und unschöne Stellen aktiv beheben.
+- Scope klein halten; keine unnötigen Refactors oder Over-Engineering.
+- Commits nur auf ausdrückliche Anfrage.
+
+## Farben & Design
+- Hintergrund: Blau-Schwarz (`#050a18` / navy).
+- Highlight 1: Magenta → Rot (PinT / Public Institutions).
+- Highlight 2: Gelb → Gold (FinT / Financial Institutions).
+- Visuelle Sprache: FDP-Gold, Schwarz-Navy, Rot-Magenta, Frankfurt/Main.
+
+## Logo & Assets
+- $$ Logo: realistischer, detaillierter Falke (`assets/logo-falcon.svg`). Das bisherige Logo komplett überarbeiten und durch einen relaistischen Falken!! ersetzen.
+- Nav-Logo über `js/media.js` → `mark` (`assets/falcon.jpg` — photorealistic peregrine).
+- Portrait / hero scene: `assets/hero.jpg` in `js/media.js` → `portrait` (hero + CV summit).
+- CV falcons: `assets/falcon.jpg` via `js/media.js` → `falcon`; size grows per station (s1–s7).
+
+## Navigation
+- Home, FinT, PinT, Contact als sichtbare Inline-Links in der Top-Nav — nicht nur Hamburger-Menü.
+- Einheitliche Nav auf allen Seiten (`nav-bar`).
+
+## Startseite (`index.html`) — Layout-Reihenfolge
+1. Hero: zentriert (nicht linksbündig), Headline, Tagline, Lead.
+2. Fact Sheet (3 Kennzahlen).
+3. Direkt darunter: großer Falke + Falk im Anzug (Portrait-Frame).
+4. CTAs: Financial Institutions (gold) · Public Institutions (magenta).
+5. Zwei Desks horizontal nebeneinander: Gold/FinT · Magenta/PinT.
+6. CV / Flight path darunter.
+
+## Startseite — CV / Flight path
+- Unten beginnen mit „Born“ (Frankfurt am Main): kleiner Falke schlüpft aus Ei.
+- Jede CV-Station: kurze Falke-Illustration, die pro Stufe stärker/größer wird.
+- Nach oben: Falke wird mächtiger; oben stärkster Falke + Falk im Anzug.
+- Chronologie: unten = Born → oben = jüngste Station (2026).
+
+## Hintergrund
+- Skyline muss Frankfurt am Main sein (Messeturm, Main Tower, Commerzbank, Deutsche Bank, Dom, EZB, Main, Brücken) — kein generisches Stadtbild.
+- Canvas in `js/main.js` (`#skyline-canvas`).
+
+## Contact (`contact.html`)
+- Erste Zeile horizontal: Financial Institution / Public Institution / Other.
+- Zweite Zeile (fin_kind bzw. pub_kind) ebenfalls horizontal (3 Spalten auf Desktop).
+- Formular öffnet mailto: `consulting@falk-gebhardt.de` — kein Backend.
+
+## Seitenstruktur (laut README)
+- `index.html` — Hero, Portrait, Desks, CV
+- `fint.html` — FinReg-Scroll-Szene, Preiskarten
+- `pint.html` — Admin vs. Politik, Stundensatz für Staat/Admin 990 EUR/h und für Politiker/Fraktionen 290 EUR die Stunde.
+- `contact.html` — Desk-/Haus-Auswahl, Formular
+- `impressum.html` / `datenschutz.html` — Rechtliches (DE)
+
+## Noch offen (Owner)
+- Ladungsfähige Anschrift für vollständiges Impressum.
+- FinTech-Preis bestätigen (monatlich vs. einmalig).

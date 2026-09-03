@@ -4,25 +4,36 @@ Public site of **Falk Thore Gebhardt (FalkTG)**.
 
 Positioning: institutional transformation on two desks.
 
-- **FinT** — Financial Institution Transformation (magenta)
-- **PinT** — Public Institution Transformation (gold)
+- **FinT** — Financial Institution Transformation (yellow–gold)
+- **PinT** — Public Institution Transformation (magenta–red)
 
-The visual language mixes FDP gold, German-flag black-to-navy and red-to-magenta, and a Frankfurt riverfront with the Main.
+Visual language: blue-black background, magenta–red and gold highlights, Frankfurt skyline with the Main.
+
+**AI / contributor rules:** see [`llms.txt`](llms.txt).
 
 ## Pages
 
 | File | Role |
 | --- | --- |
-| `index.html` | Hero with portrait over Frankfurt / Main, proof points, falcon flight-path CV, two desks |
-| `fint.html` | Scroll scene *FinReg Assessment & Transformation*, then pricing CTAs |
-| `pint.html` | Split: administration (polis) vs politician (person), hourly fee, CTAs |
-| `contact.html` | Card selector for desk and institution, then name / email / message |
+| `index.html` | Centered hero, fact sheet, falcon + portrait, two desks (horizontal), CV flight path |
+| `fint.html` | Scroll scene *FinReg Assessment & Transformation*, pricing CTAs |
+| `pint.html` | Administration (€990/h) vs. politician (€290/h), CTAs |
+| `contact.html` | Desk and institution selectors (horizontal rows), name / email / message |
 | `impressum.html` | German legal notice |
 | `datenschutz.html` | GDPR notice |
 
-## How the inquiry flow works
+## Homepage layout (top → bottom)
 
-Pricing cards on FinT and the two PinT columns link to `contact.html` with query parameters.
+1. Hero — headline, tagline, lead (centered)
+2. Fact sheet — three proof points
+3. Large falcon + portrait frame (directly under facts)
+4. CTAs — Financial Institutions · Public Institutions
+5. Two desks — FinT (gold) · PinT (magenta), side by side
+6. CV flight path — summit (falcon + portrait) at top; Born with egg hatch at bottom; growing falcon icon per station
+
+## Inquiry flow
+
+Pricing cards on FinT and PinT columns link to `contact.html` with query parameters.
 
 Examples:
 
@@ -32,19 +43,25 @@ Examples:
 - `contact.html?desk=pint&kind=admin`
 - `contact.html?desk=pint&kind=politician`
 
-The contact page reads those values and pre-selects the matching cards. Submit opens the visitor’s mail client to `consulting@falk-gebhardt.de`. No backend stores the form.
+The contact page pre-selects matching cards. Submit opens the visitor’s mail client to `consulting@falk-gebhardt.de`. No backend stores the form.
 
-## Visual assets
+## Assets
 
-Images are embedded in `js/media.js` as data URIs so GitHub Pages works without a separate binary commit.
+Configured in `js/media.js`:
 
-- `hero` — portrait of Falk Thore Gebhardt, falcon, Frankfurt skyline, river Main
-- `portrait` — source headshot
-- `mark` — falcon mark used in the nav
+- `mark` — nav falcon (`assets/falcon.jpg`)
+- `portrait` — hero / CV summit (`assets/hero.jpg`)
+- `falcon` — CV flight-path bird (`assets/falcon.jpg`), scaled larger each station
 
-The canvas (`js/main.js`) draws a second Frankfurt bank-and-Main layer behind inner pages and animates a falcon across the sky plus gold/magenta wind streaks.
+The canvas (`js/main.js`) draws a Frankfurt skyline (Messeturm, Main Tower, Commerzbank, Deutsche Bank, Dom, ECB, Main, bridges) and animates a falcon across the sky.
 
-To replace the hero later: compress a new JPEG and regenerate `js/media.js`, or drop files into `assets/` and point CSS at them.
+## Design tokens (`css/styles.css`)
+
+| Token | Use |
+| --- | --- |
+| `--bg` `#050a18` | Blue-black background |
+| `--mag` / `--mag-2` | Magenta–red (PinT) |
+| `--gold` / `--gold-2` | Yellow–gold (FinT) |
 
 ## Local preview
 
@@ -52,7 +69,7 @@ To replace the hero later: compress a new JPEG and regenerate `js/media.js`, or 
 npx serve .
 ```
 
-Open `http://localhost:3000`.
+Open `http://localhost:3000` (or the port shown).
 
 ## GitHub Pages
 
@@ -62,4 +79,3 @@ Pages is not enabled on this repository yet. When you switch it on, set the sour
 
 - Ladungsfähige Anschrift for a complete Impressum
 - Confirmation of FinTech pricing (monthly retainer vs one-off)
-- Optional: live photo session on the Main if the composite should be replaced by a single location shoot
