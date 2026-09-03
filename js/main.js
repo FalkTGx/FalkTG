@@ -46,31 +46,13 @@ function rebuildSkyCache() {
     const dy = h - dh;
     ctx.drawImage(skylineImg, dx, dy, dw, dh);
     const veil = ctx.createLinearGradient(0, 0, 0, h);
-    veil.addColorStop(0, "rgba(5,10,24,.78)");
-    veil.addColorStop(0.38, "rgba(5,10,24,.42)");
-    veil.addColorStop(0.72, "rgba(5,10,24,.18)");
-    veil.addColorStop(1, "rgba(5,10,24,.5)");
+    veil.addColorStop(0, "rgba(5,10,24,.9)");
+    veil.addColorStop(0.4, "rgba(5,10,24,.78)");
+    veil.addColorStop(0.75, "rgba(5,10,24,.62)");
+    veil.addColorStop(1, "rgba(5,10,24,.74)");
     ctx.fillStyle = veil;
     ctx.fillRect(0, 0, w, h);
   }
-}
-
-let falconT = 0;
-function drawFalcon(ctx, w, h) {
-  falconT += 0.003;
-  const x = ((falconT * 140) % (w + 200)) - 100;
-  const y = h * 0.16 + Math.sin(falconT * 2.5) * 25;
-  ctx.save(); ctx.translate(x, y); ctx.rotate(Math.sin(falconT * 4.5) * 0.1);
-  ctx.fillStyle = "#d4af37";
-  ctx.beginPath(); ctx.moveTo(16, 0);
-  ctx.quadraticCurveTo(-3, -16 - Math.sin(falconT * 8) * 6, -20, 2);
-  ctx.quadraticCurveTo(-3, 14 + Math.sin(falconT * 8) * 6, 16, 0);
-  ctx.fill();
-  ctx.fillStyle = "#f0d78c";
-  ctx.beginPath(); ctx.moveTo(18, 0); ctx.lineTo(26, -2.5); ctx.lineTo(18, 2.5); ctx.fill();
-  ctx.fillStyle = "#1a1408";
-  ctx.beginPath(); ctx.arc(14, -1.5, 1.2, 0, Math.PI * 2); ctx.fill();
-  ctx.restore();
 }
 
 function animate() {
@@ -79,7 +61,6 @@ function animate() {
   const ctx = canvas.getContext("2d");
   if (!skyCache || skyCache.width !== canvas.width) rebuildSkyCache();
   if (skyCache) ctx.drawImage(skyCache, 0, 0);
-  drawFalcon(ctx, canvas.width, canvas.height);
   requestAnimationFrame(animate);
 }
 
@@ -139,7 +120,7 @@ function fintScene() {
       el.style.opacity = String(p < 0.58 ? 1 : Math.max(0, 1 - (p - 0.58) * 10));
       place(el, a, Math.max(0, dist), `rotate(${swirl * 24}deg)`);
     });
-    hole.style.transform = `translate(-50%,-50%) scale(${0.78 + Math.min(p, 0.75) * 0.45 + Math.sin(p * 18) * 0.03})`;
+    hole.style.transform = `translate(-50%,-50%) scale(${0.86 + Math.min(p, 0.75) * 0.28})`;
     outbound.forEach((el, i) => {
       const q = Math.max(0, (p - 0.58) / 0.42);
       const fall = q * q;
