@@ -4,4 +4,8 @@ Do not edit § rules, $$ rules, or STRATEGY. Only the human owner (Falk) or the 
 
 After every update to `llms.txt` or this file (`AGENTS.md`), commit and push on a feature branch and open/update the PR. Do not leave either file as a local-only change.
 
-Cursor implements: Cursor cloud agents write code and open/update PRs. Grok Bot (Strategic Advisor) is not the coder. Read `llms.txt` section Arbeitsverteilung.
+Cursor implements: Cursor cloud agents write HTML/CSS/JS and open/update site PRs.
+
+X-Grok is Falk's private Grok (X-connected). Not Grok Bot. Not a Cursor agent. X-Grok may edit `llms.txt` / `AGENTS.md` only. X-Grok does not code the site.
+
+Grok Bot (Cursor Strategic Advisor) is separate: strategy inside Cursor, no site coding. Read `llms.txt` section Arbeitsverteilung.

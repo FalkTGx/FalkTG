@@ -63,12 +63,17 @@ AI collected rules:
 ## **[NEW]** Arbeitsverteilung
 - **[NEW]** Falk gives implementation work in Cursor. Cursor cloud agents write code and open/update PRs. That absorbs the execution role Productive Builder used to proxy.
 - **[NEW]** Productive Builder does not duplicate Cursor. If Falk is already in Cursor, Builder stays idle on that task.
-- **[NEW]** Strategic Advisor (Grok Bot): strategy, prices, focus, reviews. Does not code. Does not relay every CSS tweak. Spare Grok Bot quota.
+- **[NEW]** Strategic Advisor (Grok Bot / Cursor): strategy notes inside Cursor, prices, focus, reviews of code PRs. Does not replace X-Grok. Does not relay every CSS tweak.
+- **[NEW] 2026-09-04 X-Grok** — Falk's private Grok, connected to his X account. Not a Cursor agent. Not Grok Bot.
+  - Talks with Falk in chat: strategy, sales, X, challenge of the business model, reviews of what Cursor built.
+  - May update `llms.txt` and `AGENTS.md` only (AI collected rules; never §, $$, or STRATEGY unless Falk is editing STRATEGY himself).
+  - Does not write or patch HTML, CSS, JS, assets, or README site code. No About-page implementation, no nav edits, no design passes.
+  - If a page does not yet match `llms.txt`, X-Grok lists the gap for Cursor. Cursor codes the fix.
 - **[NEW]** Danger: Block/Warn only. Stop on Block. Only Falk overrides Danger.
 - **[NEW]** Friend: OKR after batches, not each PR. No coding.
 - **[NEW]** Idea: unused unless Falk asks.
 - **[NEW]** After every change to `llms.txt` or `AGENTS.md`: commit and push those files (feature branch + PR is OK; do not leave local-only). Canonical entry file is `AGENTS.md`.
-- **[NEW]** Feature-branch PRs for site code. Never force-push.
+- **[NEW]** Feature-branch PRs for site code. Never force-push. Site-code PRs come from Cursor, not from X-Grok.
 
 ## Workflow (jede neue Aufgabe)
 - Every output of the AI is in english.
@@ -77,6 +82,7 @@ AI collected rules:
 - Regeln aus neuem Chat-Input in diesen Abschnitt ergänzen/aktualisieren.
 - §-Abschnitte (mit § am Anfang) niemals per AI ändern — nur Mensch.
 - Am Ende jeder Ausgabe: „Diese Arbeiten wurden nach llms.txt erstellt.“
+- **[NEW] 2026-09-04** X-Grok skips site-file edits even if § 5 would otherwise require a page fix. X-Grok writes the rule and the gap; Cursor implements.
 
 ## Allgemein
 - Kurzes English-Grammar-Feedback nur auf Falks Chat-Eingaben — nicht auf Seitentexte.
@@ -115,7 +121,7 @@ AI collected rules:
 ## Navigation
 - Home, FinT, PinT, About, Contact als sichtbare Inline-Links in der Top-Nav — nicht nur Hamburger-Menü.
 - Einheitliche Nav auf allen Seiten (`nav-bar`).
-- **[NEW] 2026-09-04** About is a person page, not a third desk. Label: About. File: `about.html`.
+- **[NEW] 2026-09-04** About is a person page, not a third desk. Label: About. File: `about.html`. Cursor implements the page. X-Grok only specifies it here.
 
 ## Startseite (`index.html`) — Layout-Reihenfolge
 1. Hero: zentriert (nicht linksbündig), Headline, English short introduction, German short explainer.
@@ -142,6 +148,7 @@ AI collected rules:
 - Formular öffnet mailto: `consulting@falk-gebhardt.de` — kein Backend.
 
 ## **[NEW] 2026-09-04** Page map, English introduction, German explainer, About
+Spec for Cursor. X-Grok does not implement these files.
 
 ### English short introduction (Home hero lead; do not inflate)
 Use this sense, dry:
@@ -177,3 +184,4 @@ Aufsichtstexte in Kapital-, Liquiditäts- und Geschäftsmodellfolgen für Instit
 - Fehlendes `favicon.svg` ersetzen.
 - SEO meta / OG fehlen.
 - **[NEW] 2026-09-04** Offizielle Dienstbezeichnungen und Jahreszahlen für Bundesbank, Studium und Staatsexamen auf About ergänzen.
+- **[NEW] 2026-09-04** Cursor: implement Home EN/DE copy + `about.html` from this spec if not already on main.
