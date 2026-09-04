@@ -101,6 +101,7 @@ AI collected rules:
 - **[NEW]** No new marketing voice. Do not invent replacement positioning copy. Do not add adjectives.
 - **[NEW]** Delete only unambiguously sloppy slogan lines (e.g. “magenta pace”, “not in the waiting room”, “gold discipline” as slogans).
 - **[NEW]** Public pages stay English. Do not translate the site into German. Legal pages remain DE.
+- **[NEW] 2026-09-04** Exception (owner): Home and About carry a short German explainer under the English introduction. Do not translate desks, prices, or nav labels. Do not add further German marketing pages.
 - **[NEW]** Feature-branch PRs only. Never push to `main`.
 - **[NEW]** Inter is self-hosted (`fonts/inter-{400,600,700}.woff2`). Do not add `fonts.googleapis.com` or `fonts.gstatic.com`. Keep only CSS-referenced weights.
 - **[NEW]** Home fact chip is factual `&lt;30` — not “Gen Z operator”.
@@ -112,16 +113,17 @@ AI collected rules:
 - **[NEW]** Do not generate or add photos. Do not replace `assets/falcon.jpg` or `assets/hero.jpg`. Do not create new image files. No paid fonts or tools.
 
 ## Navigation
-- Home, FinT, PinT, Contact als sichtbare Inline-Links in der Top-Nav — nicht nur Hamburger-Menü.
+- Home, FinT, PinT, About, Contact als sichtbare Inline-Links in der Top-Nav — nicht nur Hamburger-Menü.
 - Einheitliche Nav auf allen Seiten (`nav-bar`).
+- **[NEW] 2026-09-04** About is a person page, not a third desk. Label: About. File: `about.html`.
 
 ## Startseite (`index.html`) — Layout-Reihenfolge
-1. Hero: zentriert (nicht linksbündig), Headline, Lead.
+1. Hero: zentriert (nicht linksbündig), Headline, English short introduction, German short explainer.
 2. Fact Sheet (3 Kennzahlen).
 3. Direkt darunter: großer Falke + Falk im Anzug (Portrait-Frame) — nur hier, nicht noch einmal im CV.
 4. CTAs: Financial Institutions (gold) · Public Institutions (magenta).
 5. Zwei Desks horizontal nebeneinander: Gold/FinT · Magenta/PinT.
-6. CV / Flight path darunter.
+6. CV / Flight path darunter (summary only). Full CV lives on About.
 
 ## Startseite — CV / Flight path
 - Unten beginnen mit „Born“ (Frankfurt am Main): static abstract egg + hatchling mark (facts stay; no hatch theater).
@@ -139,10 +141,32 @@ AI collected rules:
 - Zweite Zeile (fin_kind bzw. pub_kind) ebenfalls horizontal (3 Spalten auf Desktop).
 - Formular öffnet mailto: `consulting@falk-gebhardt.de` — kein Backend.
 
+## **[NEW] 2026-09-04** Page map, English introduction, German explainer, About
+
+### English short introduction (Home hero lead; do not inflate)
+Use this sense, dry:
+Falk Thore Gebhardt works on supervisory risk in banks (SREP and related assessments) and on process and communications work for public institutions. Two desks only: FinT and PinT.
+
+Existing factual line may stay: “Under 30. More than a decade in financial regulation and politics.”
+
+### German short explainer (Home + About; one short block only)
+Use this sense, dry:
+Aufsichtstexte in Kapital-, Liquiditäts- und Geschäftsmodellfolgen für Institute übersetzen. Für Verwaltung Prozessarbeit; für Fraktionen und Amtsträger Kommunikation. Keine Insider aus der Bundesbank — öffentliche Methodik und Urteil.
+
+### About (`about.html`)
+- New page. Not a product line.
+- English page title and section heads.
+- Repeat the English introduction and the German explainer at the top.
+- Then the full curriculum vitae (complete Lebenslauf), chronological, dry, no slogans.
+- Stations already public on the flight path must appear, plus education and roles the owner has stated: first state exam in law, economics B.Sc., Frankfurt financial centre / Bundesbank path, SREP and bank risk assessment, Bundestag posting 2020, Liberale Schüler NRW 2014, politically active since 2013, FDP local council Frankfurt, Bundeswehr basic training 2025, X reach.
+- Do not invent employers, job titles, dates, or grades the owner has not given. Leave a short “Owner to complete” line only for missing official titles/years.
+- Link from Home flight-path heading to About. Nav includes About on every page.
+
 ## Seitenstruktur (laut README)
-- `index.html` — Hero, Portrait, Desks, CV
+- `index.html` — Hero (EN intro + DE explainer), Portrait, Desks, CV summary
 - `fint.html` — FinReg-Scroll-Szene: Inputs laufen in die Assessment; Ergebnisse (Risk map, Compliance, Process optimisation) werden nach unten ausgeworfen. Preiskarten.
 - `pint.html` — Admin vs. Politik, Stundensatz für Staat/Admin 490 EUR/h und für Politiker/Fraktionen 290 EUR die Stunde.
+- `about.html` — About / full CV
 - `contact.html` — Desk-/Haus-Auswahl, Formular
 - `impressum.html` / `datenschutz.html` — Rechtliches (DE)
 
@@ -152,3 +176,4 @@ AI collected rules:
 - GitHub Pages einschalten.
 - Fehlendes `favicon.svg` ersetzen.
 - SEO meta / OG fehlen.
+- **[NEW] 2026-09-04** Offizielle Dienstbezeichnungen und Jahreszahlen für Bundesbank, Studium und Staatsexamen auf About ergänzen.
