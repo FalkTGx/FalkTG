@@ -63,12 +63,17 @@ AI collected rules:
 ## **[NEW]** Arbeitsverteilung
 - **[NEW]** Falk gives implementation work in Cursor. Cursor cloud agents write code and open/update PRs. That absorbs the execution role Productive Builder used to proxy.
 - **[NEW]** Productive Builder does not duplicate Cursor. If Falk is already in Cursor, Builder stays idle on that task.
-- **[NEW]** Strategic Advisor (Grok Bot): strategy, prices, focus, reviews. Does not code. Does not relay every CSS tweak. Spare Grok Bot quota.
+- **[NEW]** Strategic Advisor (Grok Bot / Cursor): strategy notes inside Cursor, prices, focus, reviews of code PRs. Does not replace X-Grok. Does not relay every CSS tweak.
+- **[NEW] 2026-09-04 X-Grok** — Falk's private Grok, connected to his X account. Not a Cursor agent. Not Grok Bot.
+  - Talks with Falk in chat: strategy, sales, X, challenge of the business model, reviews of what Cursor built.
+  - May update `llms.txt` and `AGENTS.md` only (AI collected rules; never §, $$, or STRATEGY unless Falk edits STRATEGY himself).
+  - Does not write or patch HTML, CSS, JS, assets, or README site code.
+  - If a page does not match `llms.txt`, X-Grok lists the gap. Cursor implements.
 - **[NEW]** Danger: Block/Warn only. Stop on Block. Only Falk overrides Danger.
 - **[NEW]** Friend: OKR after batches, not each PR. No coding.
 - **[NEW]** Idea: unused unless Falk asks.
 - **[NEW]** After every change to `llms.txt` or `AGENTS.md`: commit and push those files (feature branch + PR is OK; do not leave local-only). Canonical entry file is `AGENTS.md`.
-- **[NEW]** Feature-branch PRs for site code. Never force-push.
+- **[NEW]** Feature-branch PRs for site code. Never force-push. Site-code PRs come from Cursor, not from X-Grok.
 
 ## Workflow (jede neue Aufgabe)
 - Every output of the AI is in english.
@@ -77,6 +82,7 @@ AI collected rules:
 - Regeln aus neuem Chat-Input in diesen Abschnitt ergänzen/aktualisieren.
 - §-Abschnitte (mit § am Anfang) niemals per AI ändern — nur Mensch.
 - Am Ende jeder Ausgabe: „Diese Arbeiten wurden nach llms.txt erstellt.“
+- **[NEW] 2026-09-04** X-Grok does not implement § 5 page fixes. X-Grok writes the rule and the gap; Cursor codes.
 
 ## Allgemein
 - Kurzes English-Grammar-Feedback nur auf Falks Chat-Eingaben — nicht auf Seitentexte.
@@ -101,6 +107,7 @@ AI collected rules:
 - **[NEW]** No new marketing voice. Do not invent replacement positioning copy. Do not add adjectives.
 - **[NEW]** Delete only unambiguously sloppy slogan lines (e.g. “magenta pace”, “not in the waiting room”, “gold discipline” as slogans).
 - **[NEW]** Public pages stay English. Do not translate the site into German. Legal pages remain DE.
+- **[NEW] 2026-09-04** Language: everything material is English (nav, desks, prices, About, CV, introductions). German is only a short supplementary explainer under the English intro on Home and About. Not a second language version. Not a translation of the offer.
 - **[NEW]** Feature-branch PRs only. Never push to `main`.
 - **[NEW]** Inter is self-hosted (`fonts/inter-{400,600,700}.woff2`). Do not add `fonts.googleapis.com` or `fonts.gstatic.com`. Keep only CSS-referenced weights.
 - **[NEW]** Home fact chip is factual `&lt;30` — not “Gen Z operator”.
@@ -113,16 +120,17 @@ AI collected rules:
 - **[NEW]** Do not generate or add photos. Do not replace `assets/falcon.jpg` or `assets/hero.jpg`. Do not create new image files. No paid fonts or tools.
 
 ## Navigation
-- Home, FinT, PinT, Contact als sichtbare Inline-Links in der Top-Nav — nicht nur Hamburger-Menü.
-- Einheitliche Nav auf allen Seiten (`nav-bar`).
+- Home, FinT, PinT, About, Contact as visible inline links in the top nav — not hamburger-only.
+- Same `nav-bar` on every page.
+- **[NEW] 2026-09-04** About is a person page, not a third desk. Label: About. File: `about.html`. Cursor implements. X-Grok only specifies.
 
 ## Startseite (`index.html`) — Layout-Reihenfolge
-1. Hero: zentriert (nicht linksbündig), Headline, Lead.
+1. Hero: centered. Headline. English short introduction (material). Optional one-block German supplementary explainer under it.
 2. Fact Sheet (3 Kennzahlen).
 3. Direkt darunter: großer Falke + Falk im Anzug (Portrait-Frame) — nur hier, nicht noch einmal im CV.
 4. CTAs: Financial Institutions (gold) · Public Institutions (magenta).
 5. Zwei Desks horizontal nebeneinander: Gold/FinT · Magenta/PinT.
-6. CV / Flight path darunter.
+6. CV / Flight path darunter (summary only). Full CV lives on About.
 
 ## Startseite — CV / Flight path
 - Unten beginnen mit „Born“ (Frankfurt am Main): static abstract egg + hatchling mark (facts stay; no hatch theater).
@@ -140,10 +148,32 @@ AI collected rules:
 - Zweite Zeile (fin_kind bzw. pub_kind) ebenfalls horizontal (3 Spalten auf Desktop).
 - Formular öffnet mailto: `consulting@falk-gebhardt.de` — kein Backend.
 
+## **[NEW] 2026-09-04** Page map — spec for Cursor, not implemented by X-Grok
+
+### English short introduction (Home + About; this is the material text)
+Use this sense, dry:
+Falk Thore Gebhardt works on supervisory risk in banks (SREP and related assessments) and on process and communications work for public institutions. Two desks only: FinT and PinT.
+
+Existing factual line may stay: “Under 30. More than a decade in financial regulation and politics.”
+
+### German supplementary explainer (Home + About; one short block only, under the English intro)
+Not a translation of desks, prices, or the CV. Use this sense, dry:
+Aufsichtstexte in Kapital-, Liquiditäts- und Geschäftsmodellfolgen für Institute übersetzen. Für Verwaltung Prozessarbeit; für Fraktionen und Amtsträger Kommunikation. Keine Insider aus der Bundesbank — öffentliche Methodik und Urteil.
+
+### About (`about.html`)
+- New page. English throughout. Not a product line.
+- English title and section heads. English CV.
+- English introduction first. German supplementary explainer optional, one block, underneath.
+- Full curriculum vitae, chronological, dry, no slogans.
+- Include stations already on the flight path plus stated facts: first state exam in law, economics B.Sc., Frankfurt financial centre / Bundesbank path, SREP and bank risk assessment, Bundestag posting 2020, Liberale Schüler NRW 2014, politically active since 2013, FDP local council Frankfurt, Bundeswehr basic training 2025, X reach.
+- Do not invent employers, job titles, dates, or grades. “Owner to complete” only for missing official titles/years.
+- Link from Home flight-path heading to About. Nav includes About on every page.
+
 ## Seitenstruktur (laut README)
-- `index.html` — Hero, Portrait, Desks, CV
-- `fint.html` — FinReg-Scroll-Szene: Inputs laufen in die Assessment; Ergebnisse (Risk map, Compliance, Process optimisation) werden nach unten ausgeworfen. Preiskarten.
-- `pint.html` — Admin vs. Politik, Stundensatz für Staat/Admin 490 EUR/h und für Politiker/Fraktionen 290 EUR die Stunde.
+- `index.html` — Hero (EN intro + optional DE supplement), Portrait, Desks, CV summary
+- `fint.html` — FinReg-Scroll-Szene: Inputs laufen in die Assessment; Ergebnisse (Risk map, Compliance, Process optimisation) werden nach unten ausgeworfen. Preiskarten. Copy density from PR #8 / STRATEGY Anmerkungen.
+- `pint.html` — Admin vs. Politik, Stundensatz für Staat/Admin 490 EUR/h und für Politiker/Fraktionen 290 EUR die Stunde. Politician work is a PinT rate, not a brand.
+- `about.html` — About / full CV (English)
 - `contact.html` — Desk-/Haus-Auswahl, Formular
 - `impressum.html` / `datenschutz.html` — Rechtliches (DE)
 
@@ -153,3 +183,5 @@ AI collected rules:
 - GitHub Pages einschalten.
 - Fehlendes `favicon.svg` ersetzen.
 - SEO meta / OG fehlen.
+- **[NEW] 2026-09-04** Official Bundesbank title, university, and state-exam year for About.
+- **[NEW] 2026-09-04** Cursor: implement English intro + DE supplement + `about.html` from this spec.
