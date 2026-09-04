@@ -34,7 +34,7 @@ function rebuildSkyCache() {
   skyCache.width = w;
   skyCache.height = h;
   const ctx = skyCache.getContext("2d");
-  ctx.fillStyle = "#050a18";
+  ctx.fillStyle = "#0b0b0b";
   ctx.fillRect(0, 0, w, h);
   if (skylineReady && skylineImg) {
     const iw = skylineImg.naturalWidth;
@@ -44,12 +44,14 @@ function rebuildSkyCache() {
     const dh = ih * scale;
     const dx = (w - dw) / 2;
     const dy = h - dh;
+    ctx.globalAlpha = 0.4;
     ctx.drawImage(skylineImg, dx, dy, dw, dh);
+    ctx.globalAlpha = 1;
     const veil = ctx.createLinearGradient(0, 0, 0, h);
-    veil.addColorStop(0, "rgba(5,10,24,.9)");
-    veil.addColorStop(0.4, "rgba(5,10,24,.78)");
-    veil.addColorStop(0.75, "rgba(5,10,24,.62)");
-    veil.addColorStop(1, "rgba(5,10,24,.74)");
+    veil.addColorStop(0, "rgba(11,11,11,.94)");
+    veil.addColorStop(0.35, "rgba(11,11,11,.88)");
+    veil.addColorStop(0.7, "rgba(11,11,11,.82)");
+    veil.addColorStop(1, "rgba(11,11,11,.9)");
     ctx.fillStyle = veil;
     ctx.fillRect(0, 0, w, h);
   }
@@ -100,7 +102,7 @@ function formLogic() {
     e.preventDefault();
     const data = new FormData(form), lines = [];
     data.forEach((v, k) => { if (v) lines.push(k + ": " + v); });
-    location.href = "mailto:consulting@falk-gebhardt.de?subject=" + encodeURIComponent("FalkTG inquiry") + "&body=" + encodeURIComponent(lines.join("\n"));
+    location.href = "mailto:info@falktg.com?subject=" + encodeURIComponent("FalkTG inquiry") + "&body=" + encodeURIComponent(lines.join("\n"));
   });
 }
 

@@ -10,10 +10,14 @@
 § 10 - Verzichte auf alles was wie AI Slop aussieht. 
 § 11 - Die drei Zielgruppen sind 1 Finanzinstitute (Fin), der 2 Staat/die Verwaltung sowie 3 Politiker und Fraktionen (Pin).
 § 12 - Die Leistungen und Preise dürfen nicht durch KI ausgedacht werden. Sie dürfen aber durch KI beschrieben werden.
-§ 13 - Die Leistung für FinT ist Risikoanlyse + Transformation.
+§ 13 - Die Leistung für FinT ist 1. Risikoanlyse + Transformation sowie 2. Betreueung bei Gründung, SREP-Zuschlägen, Aufsichtsgesprächen, sowie Inhaberkontrollverfahren.
 § 14 - Der Leistungskatalog für Staat/Verwaltung ist aktuell nur Prozessoptimierung.
 § 15 - Der Leistungskatalog für Politiker ist Strategie und Kommunikationsberatung.
 § 16 - Die Sprache der Website, sämtliche Architektur, Gliederung und Überschriften etc. ist auf Englisch. Auf Deutsch sind nur dezente Erläuterungen am Ende.
+§ 17 - Die Seite soll professionell und clean aussehen. Hintergrund ist daher nun Schwarz/Grau in neuem Muster.
+§ 18 - KIs dürfen bestehende Textinhalte auf der Webpage nicht ändern, alerdings deren CSS. Sie dürfen nur neue Seiten erstellen sowie die gesamte Optik/Visualisierungen bearbeiten.
+§ 19 - KIs weisen auf Widersprüche in den Regelsätzen hin.
+§ 20 - KIs pushen nur auf Nachfrage oder expliziten wunsch etwas nach Git.
 § Ende
 --- NEW ADDITION: STRATEGY block added below. Coding AIs must not edit, move, dilute, or "improve" this section. ---
 
@@ -77,8 +81,8 @@ AI collected rules:
 - **[NEW]** Danger: Block/Warn only. Stop on Block. Only Falk overrides Danger.
 - **[NEW]** Friend: OKR after batches, not each PR. No coding.
 - **[NEW]** Idea: unused unless Falk asks.
-- **[NEW]** After every change to `llms.txt` or `AGENTS.md`: commit and push those files (feature branch + PR is OK; do not leave local-only). Canonical entry file is `AGENTS.md`.
-- **[NEW]** Feature-branch PRs for site code. Never force-push. Site-code PRs come from Cursor, not from X-Grok.
+- **[NEW]** After every change to `llms.txt` or `AGENTS.md`: update locally. Commit/push/PR only if Falk explicitly asks. Canonical entry file is `AGENTS.md`.
+- **[NEW]** Feature-branch PRs for site code **only when Falk asks to push/PR**. Never force-push. Never push “just because”. Site-code PRs come from Cursor, not from X-Grok.
 
 ## Workflow (jede neue Aufgabe)
 - Every output of the AI is in english.
@@ -94,19 +98,23 @@ AI collected rules:
 - Bugs finden und beheben.
 - Design professionell halten; Fehler und unschöne Stellen aktiv beheben.
 - Scope klein halten; keine unnötigen Refactors oder Over-Engineering.
-- Commits nur auf ausdrückliche Anfrage — Ausnahme unten für `llms.txt` / `AGENTS.md`.
+- Commits nur auf ausdrückliche Anfrage — Ausnahme unten für `llms.txt` / `AGENTS.md` **nur wenn Falk nicht „nur lokal / nicht pushen“ gesagt hat**.
 - Git push: bei diverged `main` zuerst `git pull --rebase origin main`, dann push — kein force-push ohne Owner-OK.
-- **[NEW]** After every update to `llms.txt` or `AGENTS.md`, commit and `git push` on a feature branch and open/update the PR. Never leave those two files as local-only changes. Canonical agent entry file is `AGENTS.md` (not `Agents.md`).
+- **[NEW] 2026-09-04 OVERRIDE** Never `git push`, never open a GitHub PR, never publish remote branches unless Falk explicitly asks in that chat turn. “Work locally” / “don’t push” always wins over any auto-push rule for `llms.txt` / `AGENTS.md`.
+- **[NEW]** After an update to `llms.txt` or `AGENTS.md`: commit **locally** when Falk allows commits; push/PR **only** on explicit ask. Canonical agent entry file is `AGENTS.md` (not `Agents.md`).
 - Gap audit on request: compare live pages to `llms.txt` / README / STRATEGY; list owner blockers vs. fixable gaps.
 - FinT scene: assessment results drop downward (not a radial burst). Deliverables: Risk map, Compliance, Process optimisation.
 
 ## Farben & Design
-- Hintergrund: Blau-Schwarz (`#050a18` / navy).
+- **[NEW]** Hintergrund: Schwarz / Grau (`#0b0b0b`; cards `#161616`) with a quiet grid + soft vignette — not Blau-Navy (§17).
 - Highlight 1: Magenta → Rot (PinT / Public Institutions).
 - Highlight 2: Gelb → Gold (FinT / Financial Institutions).
-- Visuelle Sprache: FDP-Gold, Schwarz-Navy, Rot-Magenta, Frankfurt/Main.
+- Visuelle Sprache: FDP-Gold, Schwarz-Grau, Rot-Magenta, Frankfurt/Main.
 - **[NEW]** Public look: calmer, institutional. Solid gold / magenta fills. Reduce glows, heavy gradients, playful spacing. Not theatrical.
 - **[NEW]** Flight-path egg/CV: static, dry marks. No shake, crack, or hatch animation. No storybook subtitle.
+- **[NEW]** §18 (owner): AIs must **not** change existing webpage text. CSS / optics / new pages / new sections only. Wire-ups (mailto href matching owner-shown address) OK.
+- **[NEW]** Contact / legal mail: `info@falktg.com` (owner).
+- **[NEW]** FinT offer (§13): (1) risk analysis + transformation; (2) support for founding, SREP add-ons, supervisory talks, ownership-control proceedings — describe, do not invent prices.
 
 ## Copy
 - **[NEW]** No new marketing voice. Do not invent replacement positioning copy. Do not add adjectives.
@@ -125,9 +133,9 @@ AI collected rules:
 - **[NEW]** Do not generate or add photos. Do not replace `assets/falcon.jpg` or `assets/hero.jpg`. Do not create new image files. No paid fonts or tools.
 
 ## Navigation
-- Home, FinT, PinT, About, Contact as visible inline links in the top nav — not hamburger-only.
+- Home, FinT, PinT, Contact as visible inline links in the top nav — not hamburger-only.
 - Same `nav-bar` on every page.
-- **[NEW] 2026-09-04** About is a person page, not a third desk. Label: About. File: `about.html`. Cursor implements. X-Grok only specifies.
+- **[NEW]** About page removed. CV / flight path lives on the homepage only.
 
 ## Startseite (`index.html`) — Layout-Reihenfolge
 1. Hero: centered. Headline. English short introduction (material). Optional one-block German supplementary explainer under it.
@@ -135,7 +143,7 @@ AI collected rules:
 3. Direkt darunter: großer Falke + Falk im Anzug (Portrait-Frame) — nur hier, nicht noch einmal im CV.
 4. CTAs: Financial Institutions (gold) · Public Institutions (magenta).
 5. Zwei Desks horizontal nebeneinander: Gold/FinT · Magenta/PinT.
-6. CV / Flight path darunter (summary only). Full CV lives on About.
+6. CV / Flight path on Home (full CV on main; no separate About page).
 
 ## Startseite — CV / Flight path
 - Unten beginnen mit „Born“ (Frankfurt am Main): static abstract egg + hatchling mark (facts stay; no hatch theater).
@@ -151,7 +159,13 @@ AI collected rules:
 ## Contact (`contact.html`)
 - Erste Zeile horizontal: Financial Institution / Public Institution / Other.
 - Zweite Zeile (fin_kind bzw. pub_kind) ebenfalls horizontal (3 Spalten auf Desktop).
-- Formular öffnet mailto: `consulting@falk-gebhardt.de` — kein Backend.
+- Formular öffnet mailto: `info@falktg.com` — kein Backend.
+
+## **[NEW]** Widersprüche (§19) — Owner entscheiden
+- **GenZ chip** on Home vs older AI rule “factual `&lt;30` — not Gen Z”. Owner text left unchanged (§18). Prefer: keep GenZ, or drop the old AI rule.
+- **Home “de-supplement”** is English (GDPR + rule list), not German. §16 wants only short German explainers at the end. Prefer: move rule list into EN lead / fact area, add a short DE line; or relax §16 for this block.
+- **FinT homepage desk card** still lists only risk analysis / process optimisation; §13 also requires founding, SREP add-ons, supervisory talks, ownership-control support (now on `fint.html` as a new section; Home card text not edited per §18).
+- **STRATEGY Anmerkungen** (politicians: communications / social media) vs **§15** (strategy and communications). § wins; PinT page already follows §15.
 
 ## **[NEW] 2026-09-04** Page map — spec for Cursor, not implemented by X-Grok
 
@@ -166,23 +180,18 @@ Not a translation of desks, prices, or the CV. Use this sense, dry:
 Aufsichtstexte in Kapital-, Liquiditäts- und Geschäftsmodellfolgen für Institute übersetzen. Für Verwaltung Prozessarbeit; für Fraktionen und Amtsträger Kommunikation. Keine Insider aus der Bundesbank — öffentliche Methodik und Urteil.
 
 ### About (`about.html`)
-- New page. English throughout. Not a product line.
-- English title and section heads. English CV.
-- English introduction first. German supplementary explainer optional, one block, underneath.
-- Full curriculum vitae, chronological, dry, no slogans.
-- Include stations already on the flight path plus stated facts: first state exam in law, economics B.Sc., Frankfurt financial centre / Bundesbank path, SREP and bank risk assessment, Bundestag posting 2020, Liberale Schüler NRW 2014, politically active since 2013, FDP local council Frankfurt, Bundeswehr basic training 2025, X reach.
-- Do not invent employers, job titles, dates, or grades. “Owner to complete” only for missing official titles/years.
-- Link from Home flight-path heading to About. Nav includes About on every page.
+==> deleted. CV only on the homepage (`index.html` flight path).
 
-### **[NEW]** Gap audit 2026-09-04 (Cursor)
-- Implemented: `about.html`; About in nav on all pages; EN intro + DE supplement on Home and About; Home flight path links to About; PinT copy aligned to §14/§15 (admin = process optimisation only; politicians = strategy + communications); FinT heading aligned to §13; minimal `assets/favicon.svg` restored.
-- Still owner: Impressum address; FinTech pricing confirm; GitHub Pages; SEO/OG; official Bundesbank title, university, state-exam year, FDP council years on About.
+### **[NEW]** Gap audit — manual owner edits 2026-09-04
+- Owner Home: StX / BSc / Politician line; Bundesbank lead; GDPR + rule list; GenZ chip — left as owner wrote (§18).
+- Wired `info@falktg.com` in mailto JS, Impressum href, Datenschutz, README, contact note already owner-set.
+- Added FinT “Mandate support” section from §13 (new block; did not rewrite owner FinT paragraph).
+- Still owner: Impressum address; FinTech pricing; GitHub Pages; SEO/OG; resolve §19 contradictions above.
 
 ## Seitenstruktur (laut README)
-- `index.html` — Hero (EN intro + optional DE supplement), Portrait, Desks, CV summary
+- `index.html` — Hero (EN intro + optional DE supplement), Portrait, Desks, full CV / flight path
 - `fint.html` — FinReg-Scroll-Szene: Inputs laufen in die Assessment; Ergebnisse (Risk map, Compliance, Process optimisation) werden nach unten ausgeworfen. Preiskarten. Copy density from PR #8 / STRATEGY Anmerkungen.
 - `pint.html` — Admin vs. Politik, Stundensatz für Staat/Admin 490 EUR/h und für Politiker/Fraktionen 290 EUR die Stunde. Politician work is a PinT rate, not a brand.
-- `about.html` — About / full CV (English)
 - `contact.html` — Desk-/Haus-Auswahl, Formular
 - `impressum.html` / `datenschutz.html` — Rechtliches (DE)
 
@@ -192,5 +201,5 @@ Aufsichtstexte in Kapital-, Liquiditäts- und Geschäftsmodellfolgen für Instit
 - GitHub Pages einschalten.
 - Fehlendes `favicon.svg` — restored (minimal SVG).
 - SEO meta / OG fehlen.
-- **[NEW] 2026-09-04** Official Bundesbank title, university, and state-exam year for About.
-- **[NEW] 2026-09-04** Cursor: implement English intro + DE supplement + `about.html` from this spec. **Done** (see Gap audit above).
+- **[NEW] 2026-09-04** Official Bundesbank title, university, and state-exam year for Home CV enrichment.
+- About page: removed on purpose.
