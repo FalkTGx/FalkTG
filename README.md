@@ -9,27 +9,30 @@ Positioning: institutional transformation on two desks.
 
 Visual language: blue-black background, magenta–red and gold highlights, Frankfurt skyline with the Main. Treatment is institutional: solid fills, tight type, little glow. CV falcons are angular symbolic SVG marks, not round drawings.
 
+Home carries a short English introduction and a short German explainer. The full CV is on `about.html`.
+
 **AI / contributor rules:** start at [`AGENTS.md`](AGENTS.md); full rules in [`llms.txt`](llms.txt). After every update to those two files, commit and push on a feature-branch PR.
 
 ## Pages
 
 | File | Role |
 | --- | --- |
-| `index.html` | Centered hero, fact sheet, falcon + portrait, two desks (horizontal), CV flight path |
+| `index.html` | Centered hero (EN intro + DE explainer), fact sheet, falcon + portrait, two desks, CV flight path |
 | `fint.html` | Scroll scene: topics enter the assessment; results drop downward (risk map, compliance, process optimisation), then pricing |
 | `pint.html` | Administration (€490/h) vs. politician (€290/h), CTAs |
+| `about.html` | About: EN intro, DE explainer, full CV |
 | `contact.html` | Desk and institution selectors (horizontal rows), name / email / message |
 | `impressum.html` | German legal notice |
 | `datenschutz.html` | GDPR notice |
 
 ## Homepage layout (top → bottom)
 
-1. Hero — headline, lead (centered)
+1. Hero — headline, English introduction, German explainer, lead facts (centered)
 2. Fact sheet — three proof points
 3. Large falcon + portrait frame (directly under facts)
 4. CTAs — Financial Institutions · Public Institutions
 5. Two desks — FinT (gold) · PinT (magenta), side by side
-6. CV flight path — Born with a static abstract egg mark at the bottom; angular life-stage falcon marks (not a zoomed photo); no second portrait; no hatch animation
+6. CV flight path — summary; full CV on About
 
 ## Inquiry flow
 
@@ -84,7 +87,8 @@ Pages is not enabled on this repository yet. When you switch it on, set the sour
 
 **Owner decisions**
 - Ladungsfähige Anschrift for a complete Impressum (and Datenschutz controller address)
-- Confirmation of FinTech pricing (monthly retainer vs one-off; card already shows €300/month)
+- Confirmation of FinTech pricing (monthly retainer vs one-off)
+- Official job titles and years for Bundesbank, degree and state exam on About
 
 **Site / ops**
 - Enable GitHub Pages (`main` branch root) — not live yet
