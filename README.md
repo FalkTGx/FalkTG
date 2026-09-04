@@ -16,8 +16,8 @@ Visual language: blue-black background, magenta–red and gold highlights, Frank
 | File | Role |
 | --- | --- |
 | `index.html` | Centered hero, fact sheet, falcon + portrait, two desks (horizontal), CV flight path |
-| `fint.html` | Scroll scene: topics enter the assessment; results drop downward (risk map, compliance, process optimisation), then pricing |
-| `pint.html` | Administration (€490/h) vs. politician (€290/h), CTAs |
+| `fint.html` | Scroll scene: topics enter the assessment; results drop downward (risk map, compliance, process optimisation). Scope text from STRATEGY Anmerkungen, then existing house prices |
+| `pint.html` | Administration (€490/h, process optimisation) vs. politician (€290/h, communications and social media counsel — a PinT rate, not a third desk) |
 | `contact.html` | Desk and institution selectors (horizontal rows), name / email / message |
 | `impressum.html` | German legal notice |
 | `datenschutz.html` | GDPR notice |
@@ -84,7 +84,7 @@ Pages is not enabled on this repository yet. When you switch it on, set the sour
 
 **Owner decisions**
 - Ladungsfähige Anschrift for a complete Impressum (and Datenschutz controller address)
-- Confirmation of FinTech pricing (monthly retainer vs one-off; card already shows €300/month)
+- Confirmation of FinTech pricing (monthly retainer vs one-off; card already shows €900/month)
 
 **Site / ops**
 - Enable GitHub Pages (`main` branch root) — not live yet
