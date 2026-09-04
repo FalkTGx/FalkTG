@@ -66,7 +66,17 @@ button,select,input,textarea{font:inherit;color:inherit}
 .kicker{color:var(--gold);letter-spacing:.12em;text-transform:uppercase;font-size:.66rem;margin-bottom:.45rem;font-weight:600}
 .hero h1{font-size:clamp(1.85rem,3.8vw,2.75rem);line-height:1.12;margin-bottom:.5rem;font-weight:700;letter-spacing:0}
 .hero .tag{font-size:1rem;color:var(--gold-2);margin-bottom:.55rem}
-.hero .lead{color:var(--muted);margin:0 auto 1.25rem;max-width:32rem;font-size:.9rem}
+.hero .lead{color:var(--muted);margin:0 auto .65rem;max-width:32rem;font-size:.9rem}
+.de-supplement{color:var(--muted);margin:0 auto 1.25rem;max-width:32rem;font-size:.78rem;line-height:1.45;opacity:.9}
+.inline-link{color:var(--gold);text-decoration:none}
+.inline-link:hover{text-decoration:underline}
+.about-hero .lead{color:var(--paper);margin:0 auto .65rem;font-size:.95rem}
+.about-hero .muted{margin-bottom:.65rem}
+.cv-list{list-style:none;max-width:640px;margin:0 auto;padding:0;display:grid;gap:.85rem}
+.cv-list li{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--line)}
+.cv-list .yr{color:var(--gold);font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;padding-top:.15rem}
+.cv-list h3{font-size:.95rem;font-weight:600;margin:0 0 .2rem}
+.cv-list .muted{font-size:.82rem;margin:0}
 
 /* Hero fact chips */
 .hero-facts{display:flex;justify-content:center;gap:.75rem;margin-bottom:1.5rem;flex-wrap:wrap}
@@ -177,4 +187,5 @@ textarea{min-height:6.5rem}
   .life-item{width:calc(100% - 1.4rem);margin-left:1.4rem!important;margin-right:0!important}
   .life-item::after{left:-.95rem!important;right:auto!important}
   .life-path{left:.5rem;transform:none}
+  .cv-list li{grid-template-columns:1fr;gap:.25rem}
 }

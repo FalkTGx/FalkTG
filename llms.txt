@@ -9,6 +9,11 @@
 § 9 - The AI gives always three short feedbacks, what should be changed next.
 § 10 - Verzichte auf alles was wie AI Slop aussieht. 
 § 11 - Die drei Zielgruppen sind 1 Finanzinstitute (Fin), der 2 Staat/die Verwaltung sowie 3 Politiker und Fraktionen (Pin).
+§ 12 - Die Leistungen und Preise dürfen nicht durch KI ausgedacht werden. Sie dürfen aber durch KI beschrieben werden.
+§ 13 - Die Leistung für FinT ist Risikoanlyse + Transformation.
+§ 14 - Der Leistungskatalog für Staat/Verwaltung ist aktuell nur Prozessoptimierung.
+§ 15 - Der Leistungskatalog für Politiker ist Strategie und Kommunikationsberatung.
+§ 16 - Die Sprache der Website, sämtliche Architektur, Gliederung und Überschriften etc. ist auf Englisch. Auf Deutsch sind nur dezente Erläuterungen am Ende.
 § Ende
 --- NEW ADDITION: STRATEGY block added below. Coding AIs must not edit, move, dilute, or "improve" this section. ---
 
@@ -169,6 +174,10 @@ Aufsichtstexte in Kapital-, Liquiditäts- und Geschäftsmodellfolgen für Instit
 - Do not invent employers, job titles, dates, or grades. “Owner to complete” only for missing official titles/years.
 - Link from Home flight-path heading to About. Nav includes About on every page.
 
+### **[NEW]** Gap audit 2026-09-04 (Cursor)
+- Implemented: `about.html`; About in nav on all pages; EN intro + DE supplement on Home and About; Home flight path links to About; PinT copy aligned to §14/§15 (admin = process optimisation only; politicians = strategy + communications); FinT heading aligned to §13; minimal `assets/favicon.svg` restored.
+- Still owner: Impressum address; FinTech pricing confirm; GitHub Pages; SEO/OG; official Bundesbank title, university, state-exam year, FDP council years on About.
+
 ## Seitenstruktur (laut README)
 - `index.html` — Hero (EN intro + optional DE supplement), Portrait, Desks, CV summary
 - `fint.html` — FinReg-Scroll-Szene: Inputs laufen in die Assessment; Ergebnisse (Risk map, Compliance, Process optimisation) werden nach unten ausgeworfen. Preiskarten. Copy density from PR #8 / STRATEGY Anmerkungen.
@@ -181,7 +190,7 @@ Aufsichtstexte in Kapital-, Liquiditäts- und Geschäftsmodellfolgen für Instit
 - Ladungsfähige Anschrift für vollständiges Impressum.
 - FinTech-Preis bestätigen (monatlich vs. einmalig).
 - GitHub Pages einschalten.
-- Fehlendes `favicon.svg` ersetzen.
+- Fehlendes `favicon.svg` — restored (minimal SVG).
 - SEO meta / OG fehlen.
 - **[NEW] 2026-09-04** Official Bundesbank title, university, and state-exam year for About.
-- **[NEW] 2026-09-04** Cursor: implement English intro + DE supplement + `about.html` from this spec.
+- **[NEW] 2026-09-04** Cursor: implement English intro + DE supplement + `about.html` from this spec. **Done** (see Gap audit above).
