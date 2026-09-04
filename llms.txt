@@ -14,6 +14,8 @@
 § 14 - Der Leistungskatalog für Staat/Verwaltung ist aktuell nur Prozessoptimierung.
 § 15 - Der Leistungskatalog für Politiker ist Strategie und Kommunikationsberatung.
 § 16 - Die Sprache der Website, sämtliche Architektur, Gliederung und Überschriften etc. ist auf Englisch. Auf Deutsch sind nur dezente Erläuterungen am Ende.
+§ 17 - Die Seite soll professionell und clean aussehen. Hintergrund ist daher nun Schwarz/Grau in neuem Muster.
+§ 18 - KIs dürfen bestehende Textinhalte auf der Webpage nur dezent sprachlich ändern, ansonsten nur neue Seiten erstellen sowie die gesamte Optik/Visualisierungen bearbeiten.
 § Ende
 --- NEW ADDITION: STRATEGY block added below. Coding AIs must not edit, move, dilute, or "improve" this section. ---
 
@@ -101,12 +103,13 @@ AI collected rules:
 - FinT scene: assessment results drop downward (not a radial burst). Deliverables: Risk map, Compliance, Process optimisation.
 
 ## Farben & Design
-- Hintergrund: Blau-Schwarz (`#050a18` / navy).
+- **[NEW]** Hintergrund: Schwarz / Grau (`#0b0b0b`; cards `#161616`) with a quiet grid + soft vignette — not Blau-Navy (§17).
 - Highlight 1: Magenta → Rot (PinT / Public Institutions).
 - Highlight 2: Gelb → Gold (FinT / Financial Institutions).
-- Visuelle Sprache: FDP-Gold, Schwarz-Navy, Rot-Magenta, Frankfurt/Main.
+- Visuelle Sprache: FDP-Gold, Schwarz-Grau, Rot-Magenta, Frankfurt/Main.
 - **[NEW]** Public look: calmer, institutional. Solid gold / magenta fills. Reduce glows, heavy gradients, playful spacing. Not theatrical.
 - **[NEW]** Flight-path egg/CV: static, dry marks. No shake, crack, or hatch animation. No storybook subtitle.
+- **[NEW]** §18: AIs may only lightly edit existing page copy; otherwise new pages + optics / visualisations.
 
 ## Copy
 - **[NEW]** No new marketing voice. Do not invent replacement positioning copy. Do not add adjectives.
@@ -125,9 +128,9 @@ AI collected rules:
 - **[NEW]** Do not generate or add photos. Do not replace `assets/falcon.jpg` or `assets/hero.jpg`. Do not create new image files. No paid fonts or tools.
 
 ## Navigation
-- Home, FinT, PinT, About, Contact as visible inline links in the top nav — not hamburger-only.
+- Home, FinT, PinT, Contact as visible inline links in the top nav — not hamburger-only.
 - Same `nav-bar` on every page.
-- **[NEW] 2026-09-04** About is a person page, not a third desk. Label: About. File: `about.html`. Cursor implements. X-Grok only specifies.
+- **[NEW]** About page removed. CV / flight path lives on the homepage only.
 
 ## Startseite (`index.html`) — Layout-Reihenfolge
 1. Hero: centered. Headline. English short introduction (material). Optional one-block German supplementary explainer under it.
@@ -135,7 +138,7 @@ AI collected rules:
 3. Direkt darunter: großer Falke + Falk im Anzug (Portrait-Frame) — nur hier, nicht noch einmal im CV.
 4. CTAs: Financial Institutions (gold) · Public Institutions (magenta).
 5. Zwei Desks horizontal nebeneinander: Gold/FinT · Magenta/PinT.
-6. CV / Flight path darunter (summary only). Full CV lives on About.
+6. CV / Flight path on Home (full CV on main; no separate About page).
 
 ## Startseite — CV / Flight path
 - Unten beginnen mit „Born“ (Frankfurt am Main): static abstract egg + hatchling mark (facts stay; no hatch theater).
@@ -166,23 +169,18 @@ Not a translation of desks, prices, or the CV. Use this sense, dry:
 Aufsichtstexte in Kapital-, Liquiditäts- und Geschäftsmodellfolgen für Institute übersetzen. Für Verwaltung Prozessarbeit; für Fraktionen und Amtsträger Kommunikation. Keine Insider aus der Bundesbank — öffentliche Methodik und Urteil.
 
 ### About (`about.html`)
-- New page. English throughout. Not a product line.
-- English title and section heads. English CV.
-- English introduction first. German supplementary explainer optional, one block, underneath.
-- Full curriculum vitae, chronological, dry, no slogans.
-- Include stations already on the flight path plus stated facts: first state exam in law, economics B.Sc., Frankfurt financial centre / Bundesbank path, SREP and bank risk assessment, Bundestag posting 2020, Liberale Schüler NRW 2014, politically active since 2013, FDP local council Frankfurt, Bundeswehr basic training 2025, X reach.
-- Do not invent employers, job titles, dates, or grades. “Owner to complete” only for missing official titles/years.
-- Link from Home flight-path heading to About. Nav includes About on every page.
+==> deleted. CV only on the homepage (`index.html` flight path).
 
-### **[NEW]** Gap audit 2026-09-04 (Cursor)
-- Implemented: `about.html`; About in nav on all pages; EN intro + DE supplement on Home and About; Home flight path links to About; PinT copy aligned to §14/§15 (admin = process optimisation only; politicians = strategy + communications); FinT heading aligned to §13; minimal `assets/favicon.svg` restored.
-- Still owner: Impressum address; FinTech pricing confirm; GitHub Pages; SEO/OG; official Bundesbank title, university, state-exam year, FDP council years on About.
+### **[NEW]** Gap audit 2026-09-04 (Cursor) — updated local
+- Removed `about.html` and About nav links (owner decision).
+- Applied §17 black/gray background + quiet pattern.
+- Home keeps owner lead (Bundesbank / SREP); light typo/EN heading fixes only (§18). DE supplement restored under EN intro.
+- Still owner: Impressum address; FinTech pricing confirm; GitHub Pages; SEO/OG; official titles/years for CV enrichment.
 
 ## Seitenstruktur (laut README)
-- `index.html` — Hero (EN intro + optional DE supplement), Portrait, Desks, CV summary
+- `index.html` — Hero (EN intro + optional DE supplement), Portrait, Desks, full CV / flight path
 - `fint.html` — FinReg-Scroll-Szene: Inputs laufen in die Assessment; Ergebnisse (Risk map, Compliance, Process optimisation) werden nach unten ausgeworfen. Preiskarten. Copy density from PR #8 / STRATEGY Anmerkungen.
 - `pint.html` — Admin vs. Politik, Stundensatz für Staat/Admin 490 EUR/h und für Politiker/Fraktionen 290 EUR die Stunde. Politician work is a PinT rate, not a brand.
-- `about.html` — About / full CV (English)
 - `contact.html` — Desk-/Haus-Auswahl, Formular
 - `impressum.html` / `datenschutz.html` — Rechtliches (DE)
 
@@ -192,5 +190,5 @@ Aufsichtstexte in Kapital-, Liquiditäts- und Geschäftsmodellfolgen für Instit
 - GitHub Pages einschalten.
 - Fehlendes `favicon.svg` — restored (minimal SVG).
 - SEO meta / OG fehlen.
-- **[NEW] 2026-09-04** Official Bundesbank title, university, and state-exam year for About.
-- **[NEW] 2026-09-04** Cursor: implement English intro + DE supplement + `about.html` from this spec. **Done** (see Gap audit above).
+- **[NEW] 2026-09-04** Official Bundesbank title, university, and state-exam year for Home CV enrichment.
+- About page: removed on purpose.

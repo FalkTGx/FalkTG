@@ -10,4 +10,4 @@ X-Grok is Falk's private Grok (X-connected). Not Grok Bot. Not a Cursor agent. X
 
 Grok Bot (Cursor Strategic Advisor) is separate: strategy inside Cursor, no site coding. Read `llms.txt` section Arbeitsverteilung.
 
-Public site language: English for everything material. German only as a short supplementary explainer. Legal pages stay DE.
+Public site language: English for everything material. German only as a short supplementary explainer. Legal pages stay DE. No separate About page — CV on Home.

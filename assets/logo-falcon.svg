@@ -51,7 +51,7 @@
     </filter>
   </defs>
   <!-- Background -->
-  <circle cx="128" cy="128" r="124" fill="#07090e"/>
+  <circle cx="128" cy="128" r="124" fill="#0b0b0b"/>
   <circle cx="128" cy="128" r="122" fill="none" stroke="url(#goldBody)" stroke-width="3" opacity="0.6"/>
   <circle cx="128" cy="128" r="118" fill="none" stroke="url(#goldBody)" stroke-width="0.8" opacity="0.3"/>
   <!-- Body shadow -->

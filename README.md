@@ -7,7 +7,7 @@ Positioning: institutional transformation on two desks.
 - **FinT** — Financial Institution Transformation (yellow–gold)
 - **PinT** — Public Institution Transformation (magenta–red)
 
-Visual language: blue-black background, magenta–red and gold highlights, Frankfurt skyline with the Main. Treatment is institutional: solid fills, tight type, little glow. CV falcons are angular symbolic SVG marks, not round drawings.
+Visual language: black–gray background with a quiet grid, magenta–red and gold highlights, Frankfurt skyline with the Main. Treatment is institutional: solid fills, tight type, little glow. CV falcons are angular symbolic SVG marks, not round drawings.
 
 **AI / contributor rules:** start at [`AGENTS.md`](AGENTS.md); full rules in [`llms.txt`](llms.txt). After every update to those two files, commit and push on a feature-branch PR.
 
@@ -15,10 +15,9 @@ Visual language: blue-black background, magenta–red and gold highlights, Frank
 
 | File | Role |
 | --- | --- |
-| `index.html` | Centered hero (EN intro + DE supplement), fact sheet, falcon + portrait, two desks, CV flight-path summary |
+| `index.html` | Centered hero (EN intro + DE supplement), fact sheet, falcon + portrait, two desks, CV flight path |
 | `fint.html` | Scroll scene: topics enter the assessment; results drop downward (risk map, compliance, process optimisation). Scope text from STRATEGY Anmerkungen, then existing house prices |
 | `pint.html` | Administration (€490/h, process optimisation only) vs. politician (€290/h, strategy and communications counsel — a PinT rate, not a third desk) |
-| `about.html` | About / full English CV; EN intro + optional DE supplement |
 | `contact.html` | Desk and institution selectors (horizontal rows), name / email / message |
 | `impressum.html` | German legal notice |
 | `datenschutz.html` | GDPR notice |
@@ -30,7 +29,7 @@ Visual language: blue-black background, magenta–red and gold highlights, Frank
 3. Large falcon + portrait frame (directly under facts)
 4. CTAs — Financial Institutions · Public Institutions
 5. Two desks — FinT (gold) · PinT (magenta), side by side
-6. CV flight path — summary only; link to About for full CV; Born with a static abstract egg mark at the bottom; angular life-stage falcon marks; no hatch animation
+6. CV flight path — Born with a static abstract egg mark at the bottom; angular life-stage falcon marks; no hatch animation; no separate About page
 
 ## Inquiry flow
 
@@ -64,7 +63,8 @@ Inter is self-hosted as latin woff2 in `fonts/` (weights 400, 600, 700 — the w
 
 | Token | Use |
 | --- | --- |
-| `--bg` `#050a18` | Blue-black background |
+| `--bg` `#0b0b0b` | Black / gray background |
+| `--bg-card` | Dark gray panels |
 | `--mag` / `--mag-2` | Magenta–red (PinT) |
 | `--gold` / `--gold-2` | Yellow–gold (FinT) |
 | `--radius` `.3rem` | Tight corners; buttons use solid gold / magenta, not gradients |
@@ -89,7 +89,7 @@ Pages is not enabled on this repository yet. When you switch it on, set the sour
 
 **Site / ops**
 - Enable GitHub Pages (`main` branch root) — not live yet
-- `assets/favicon.svg` is present (simple gold mark on navy)
+- `assets/favicon.svg` is present (simple gold mark on black)
 - `$$` logo: `assets/logo-falcon.svg` is still a stylized gold SVG, not a realistic falcon (nav already uses `falcon.jpg`)
 - SEO: no `meta description` / Open Graph tags yet
-- About CV placeholders: official Bundesbank title, university, state-exam year, FDP council years
+- Home CV enrichment: official Bundesbank title, university, state-exam year, FDP council years (owner)
