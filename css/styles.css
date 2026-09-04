@@ -76,7 +76,8 @@ button,select,input,textarea{font:inherit;color:inherit}
 .hero h3{font-size:.95rem;font-weight:600;color:var(--gold-2);margin:0 auto .75rem;letter-spacing:.02em}
 .hero .tag{font-size:1rem;color:var(--gold-2);margin-bottom:.55rem}
 .hero .lead{color:var(--muted);margin:0 auto .65rem;max-width:32rem;font-size:.9rem}
-.de-supplement{color:var(--muted);margin:0 auto 1.25rem;max-width:32rem;font-size:.78rem;line-height:1.45;opacity:.9}
+.de-supplement{color:var(--muted);margin:0 auto 1.25rem;max-width:34rem;font-size:.78rem;line-height:1.5;opacity:.9}
+.de-supplement br{display:block;content:"";margin-top:.35rem}
 .inline-link{color:var(--gold);text-decoration:none}
 .inline-link:hover{text-decoration:underline}
 .about-hero .lead{color:var(--paper);margin:0 auto .65rem;font-size:.95rem}
@@ -109,8 +110,8 @@ button,select,input,textarea{font:inherit;color:inherit}
 
 /* ── Sections ── */
 .section{padding:2.75rem 1.4rem;max-width:calc(var(--max) + 2.8rem);margin:0 auto}
-.section-head{text-align:center;max-width:36rem;margin:0 auto 1.25rem}
-.section-head h2{font-size:clamp(1.35rem,2.4vw,1.75rem);margin:.2rem 0 .35rem;font-weight:700}
+.section-head + .section-head{margin-top:1.75rem}
+.section-head .muted br{display:block;margin-top:.35rem}
 .muted{color:var(--muted)}
 
 /* ── Desk cards (side-by-side) ── */

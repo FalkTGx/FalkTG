@@ -43,7 +43,7 @@ Examples:
 - `contact.html?desk=pint&kind=admin`
 - `contact.html?desk=pint&kind=politician`
 
-The contact page pre-selects matching cards. Submit opens the visitor’s mail client to `consulting@falk-gebhardt.de`. No backend stores the form.
+The contact page pre-selects matching cards. Submit opens the visitor’s mail client to `info@falktg.com`. No backend stores the form.
 
 ## Assets
 

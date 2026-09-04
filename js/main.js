@@ -102,7 +102,7 @@ function formLogic() {
     e.preventDefault();
     const data = new FormData(form), lines = [];
     data.forEach((v, k) => { if (v) lines.push(k + ": " + v); });
-    location.href = "mailto:consulting@falk-gebhardt.de?subject=" + encodeURIComponent("FalkTG inquiry") + "&body=" + encodeURIComponent(lines.join("\n"));
+    location.href = "mailto:info@falktg.com?subject=" + encodeURIComponent("FalkTG inquiry") + "&body=" + encodeURIComponent(lines.join("\n"));
   });
 }
 

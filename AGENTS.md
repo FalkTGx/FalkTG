@@ -2,9 +2,9 @@ Every AI must read `llms.txt` first and obey this priority: § rules > $$ rules 
 
 Do not edit § rules, $$ rules, or STRATEGY. Only the human owner (Falk) or the Strategic Advisor agent may change STRATEGY.
 
-After every update to `llms.txt` or this file (`AGENTS.md`), commit and push on a feature branch and open/update the PR. Do not leave either file as a local-only change.
+**Never `git push` / never open a GitHub PR unless Falk explicitly asks in that chat.** “Local only” / “don’t push” overrides any auto-push note for `llms.txt` / `AGENTS.md`. Local commits only when Falk asks to commit.
 
-Cursor implements: Cursor cloud agents write HTML/CSS/JS and open/update site PRs.
+Cursor implements: Cursor cloud agents write HTML/CSS/JS. Push/PR only on explicit owner ask.
 
 X-Grok is Falk's private Grok (X-connected). Not Grok Bot. Not a Cursor agent. X-Grok may edit `llms.txt` / `AGENTS.md` only. X-Grok does not code the site.
 
